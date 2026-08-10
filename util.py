@@ -1,8 +1,4 @@
 import csv
-try:
-    from urllib.request import urlretrieve
-except ImportError:
-    from urllib import urlretrieve
 
 class Util:
 
@@ -10,11 +6,6 @@ class Util:
     def read_games(file):
         """ Initializes game objects from csv """
         games = [item for item in csv.DictReader(open(file))]
-
-        # Uncommenting these three lines will grab the latest game results for this season, update team ratings accordingly, and make forecasts for upcoming games
-        #file_latest = file.replace(".", "_2021.")
-        #urlretrieve("https://projects.fivethirtyeight.com/nfl-api/2021/nfl_games_2021.csv", file_latest)
-        #games += [item for item in csv.DictReader(open(file_latest))]
 
         for game in games:
             game['season'], game['neutral'], game['playoff'] = int(game['season']), int(game['neutral']), int(game['playoff'])
