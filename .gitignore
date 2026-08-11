@@ -1,2 +1,10 @@
 *.pyc
 data/nfl_games_20*
+
+webapp/backend/venv/
+__pycache__/
+webapp/data/
+webapp/frontend/node_modules/
+webapp/frontend/dist/
+.playwright-mcp/
+.pytest_cache/

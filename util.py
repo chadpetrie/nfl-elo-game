@@ -15,6 +15,17 @@ class Util:
         return games
 
     @staticmethod
+    def score_probability(prob, result, playoff):
+        """ Scores a rounded win probability against the actual result using the game's point system """
+        rounded_prob = round(prob, 2)
+        brier = (rounded_prob - result) * (rounded_prob - result)
+        points = 25 - (100 * brier)
+        points = round(points + 0.001 if points < 0 else points, 1) # Round half up
+        if playoff == 1:
+            points *= 2
+        return points
+
+    @staticmethod
     def evaluate_forecasts(games):
         """ Evaluates and scores forecasts in the my_prob1 field against those in the elo_prob1 field for each game """
         my_points_by_season, elo_points_by_season = {}, {}
@@ -25,31 +36,16 @@ class Util:
         # Evaluate forecasts and group by season
         for game in forecasted_games:
 
-            # Skip unplayed games and ties
-            if game['result1'] == None or game['result1'] == 0.5:
+            # Skip unplayed games, ties, and games with no benchmark to compare against
+            if game['result1'] == None or game['result1'] == 0.5 or game['elo_prob1'] == None:
                 continue
 
             if game['season'] not in elo_points_by_season:
                 elo_points_by_season[game['season']] = 0.0
                 my_points_by_season[game['season']] = 0.0
 
-            # Calculate elo's points for game
-            rounded_elo_prob = round(game['elo_prob1'], 2)
-            elo_brier = (rounded_elo_prob - game['result1']) * (rounded_elo_prob - game['result1'])
-            elo_points = 25 - (100 * elo_brier)
-            elo_points = round(elo_points + 0.001 if elo_points < 0 else elo_points, 1) # Round half up
-            if game['playoff'] == 1:
-                elo_points *= 2
-            elo_points_by_season[game['season']] += elo_points
-
-            # Calculate my points for game
-            rounded_my_prob = round(game['my_prob1'], 2)
-            my_brier = (rounded_my_prob - game['result1']) * (rounded_my_prob - game['result1'])
-            my_points = 25 - (100 * my_brier)
-            my_points = round(my_points + 0.001 if my_points < 0 else my_points, 1) # Round half up
-            if game['playoff'] == 1:
-                my_points *= 2
-            my_points_by_season[game['season']] += my_points
+            elo_points_by_season[game['season']] += Util.score_probability(game['elo_prob1'], game['result1'], game['playoff'])
+            my_points_by_season[game['season']] += Util.score_probability(game['my_prob1'], game['result1'], game['playoff'])
 
         # Print individual seasons
         for season in my_points_by_season:
@@ -64,5 +60,6 @@ class Util:
         if len(upcoming_games) > 0:
             print("Forecasts for upcoming games:")
             for game in upcoming_games:
-                print("%s\t%s vs. %s\t\t%s%% (Elo)\t\t%s%% (You)" % (game['date'], game['team1'], game['team2'], int(round(100*game['elo_prob1'])), int(round(100*game['my_prob1']))))
+                elo_display = "%s%%" % int(round(100*game['elo_prob1'])) if game['elo_prob1'] != None else "N/A"
+                print("%s\t%s vs. %s\t\t%s (Elo)\t\t%s%% (You)" % (game['date'], game['team1'], game['team2'], elo_display, int(round(100*game['my_prob1']))))
             print("")

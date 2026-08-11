@@ -1,0 +1,6 @@
+-r requirements.txt
+
+# Test suite only. `pytest tests` needs httpx as well, because FastAPI's TestClient is built
+# on it - importing the client without httpx installed fails before any test runs.
+pytest
+httpx
