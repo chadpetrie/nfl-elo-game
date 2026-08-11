@@ -203,9 +203,11 @@ than change a setting you'd chosen — it's a one-slider change on the Settings 
 
 ### Needs your decision
 
-1. ~~**Nothing is committed.**~~ **Closed 2026-08-11.** Landed as four themed commits on
-   `update-2026-season`, which is now 4 ahead of origin and **not pushed** — review then
-   `git push` when you're happy:
+1. ~~**Nothing is committed.**~~ **Closed 2026-08-11.** Landed as themed commits on
+   `update-2026-season`, which is ahead of origin and **not pushed** — review, then `git push`
+   when you're happy. Run `git log origin/update-2026-season..HEAD` for the current list rather
+   than trusting a count written here; edits to this file add commits of their own. The
+   substantive ones:
    * `d1b8f9d` model layer: week/game id through the pipeline, `score_probability` extracted,
      pre-game ratings recorded, import-safe data paths
    * `b51ceef` the webapp
