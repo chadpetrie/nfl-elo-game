@@ -203,11 +203,14 @@ than change a setting you'd chosen — it's a one-slider change on the Settings 
 
 ### Needs your decision
 
-1. **Nothing is committed.** All of this is uncommitted in the working tree, including the entire
-   `webapp/` directory which was already untracked before I started. I didn't commit because you
-   hadn't asked and it's a lot of surface to land in one go without your eyes on it. Suggested
-   split: (a) engine refactor + `forecast.py`/`util.py`, (b) the webapp, (c) tests, (d) backtest
-   and reports.
+1. ~~**Nothing is committed.**~~ **Closed 2026-08-11.** Landed as four themed commits on
+   `update-2026-season`, which is now 4 ahead of origin and **not pushed** — review then
+   `git push` when you're happy:
+   * `d1b8f9d` model layer: week/game id through the pipeline, `score_probability` extracted,
+     pre-game ratings recorded, import-safe data paths
+   * `b51ceef` the webapp
+   * `b0cdf09` the 128-test suite + `requirements-dev.txt`
+   * `7b10b4a` backtest script, the five season reports, and this document
 2. ~~**`.mcp.json` is untracked** and configures the Playwright MCP server.~~ **Mostly closed
    2026-08-11.** Playwright is now registered at **user scope** in `~/.claude.json`, so it is
    available in every project rather than only this repo. Backup of the previous config is at
@@ -215,8 +218,11 @@ than change a setting you'd chosen — it's a one-slider change on the Settings 
    *Remaining step:* fully restart Claude Code, confirm Playwright still works, then delete the
    repo's `.mcp.json`. Do not delete it before confirming — a running session can rewrite
    `~/.claude.json` on exit, and you don't want to lose both copies at once.
-3. **`reports/*.md` are generated output** — five files, ~500 lines each. Commit them as artifacts
-   or gitignore them and regenerate on demand. I left them tracked-able but made no call.
+3. ~~**`reports/*.md` are generated output.**~~ **Closed 2026-08-11.** Committed. They are
+   deterministic given the code and the data, and a completed season's report never changes, so
+   the churn argument against checking in generated files doesn't apply here. Each now carries a
+   line saying which command produced it. If you later backtest an *in-progress* season it will
+   churn weekly — gitignore that one specifically rather than the whole folder.
 4. **The blend weight recommendation above** is a settings change I deliberately did not make for
    you.
 
@@ -244,9 +250,10 @@ than change a setting you'd chosen — it's a one-slider change on the Settings 
 - Removed a stray test pick I'd created on `2026_01_NE_SEA` during an earlier verification run —
   your picks database is empty and parameters are back at the 538 defaults.
 - Added `.playwright-mcp/` and `.pytest_cache/` to `.gitignore`.
-- `pytest` and `httpx` were installed into `webapp/backend/venv` to run the tests. They are **not**
-  in `requirements.txt` — worth splitting into a `requirements-dev.txt` if you want the suite
-  reproducible from a fresh setup.
+- ~~`pytest` and `httpx` were installed into `webapp/backend/venv`.~~ **Closed 2026-08-11.** Now in
+  `webapp/backend/requirements-dev.txt`, which pulls in `requirements.txt` too, so a fresh
+  checkout runs the suite with one install. `setup.ps1` deliberately does not install it, keeping
+  the normal setup lean; the command is in the webapp README.
 
 ## Running things
 
