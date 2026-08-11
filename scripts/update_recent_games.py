@@ -21,7 +21,8 @@ OUTPUT_PATH = "data/nfl_games_recent.csv"
 FIRST_SEASON = 2021  # last season already present in data/nfl_games.csv is 2020
 
 FIELDNAMES = ["date", "season", "neutral", "playoff", "team1", "team2",
-              "elo1", "elo2", "elo_prob1", "score1", "score2", "result1"]
+              "elo1", "elo2", "elo_prob1", "score1", "score2", "result1",
+              "week", "game_type", "gametime", "game_id"]
 
 # nflverse uses each team's current city; the legacy file keeps one fixed code per
 # franchise across relocations (Rams stayed LAR through St. Louis, Chargers stayed LAC
@@ -81,6 +82,10 @@ def transform(row):
         "score1": row["home_score"],
         "score2": row["away_score"],
         "result1": result1,
+        "week": row["week"],
+        "game_type": row["game_type"],
+        "gametime": row["gametime"],
+        "game_id": row["game_id"],
     }
 
 
