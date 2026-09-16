@@ -18,18 +18,31 @@ function actualWinner(g) {
   return null
 }
 
+// The mobile card layout needs each cell's column name in the DOM (not just CSS ::before
+// content, which screen readers don't reliably expose) - hidden on the desktop table, where the
+// real <th> headers already do that job.
+function CellLabel({ text }) {
+  return <span className="cell-label">{text}</span>
+}
+
 function PredictionCell({ game, source, maxRank }) {
   const prob = game[`${source.id}_prob`]
   const pick = game[`${source.id}_pick`]
   const rank = game[`${source.id}_rank`]
   if (prob == null) {
-    return <td className={source.className} data-label={source.label}><span className="na">odds not posted</span></td>
+    return (
+      <td className={source.className}>
+        <CellLabel text={source.label} />
+        <span className="na">odds not posted</span>
+      </td>
+    )
   }
   const winner = actualWinner(game)
   const correct = winner != null ? pick === winner : null
 
   return (
-    <td className={source.className} data-label={source.label}>
+    <td className={source.className}>
+      <CellLabel text={source.label} />
       <div className="pred">
         <span className={`rank-badge ${rank === maxRank ? 'top' : ''}`}>{rank}</span>
         <span className="pred-team">{pick}</span>
@@ -60,7 +73,8 @@ function PickCell({ game, maxConfidence, duplicate, onSave, onClear }) {
   }
 
   return (
-    <td data-label="Your pick">
+    <td>
+      <CellLabel text="Your pick" />
       <div className="pick-cell">
         <select value={team} onChange={(e) => changeTeam(e.target.value)} aria-label="Your pick">
           <option value="">—</option>
@@ -317,11 +331,18 @@ export default function WeekView() {
               <tbody>
                 {games.map((g) => (
                   <tr key={g.game_id} className={g.result1 != null ? 'played' : ''}>
-                    <td className="matchup" data-label="Matchup">
-                      <span className="away">{g.team2}</span> @ {g.team1}
+                    <td className="matchup">
+                      <CellLabel text="Matchup" />
+                      <span className="matchup-value">
+                        <span className="away">{g.team2}</span> @ {g.team1}
+                      </span>
                     </td>
-                    <td className="kickoff" data-label="Kickoff">{g.date}{g.gametime ? ` ${g.gametime}` : ''}</td>
-                    <td data-label="Result">
+                    <td className="kickoff">
+                      <CellLabel text="Kickoff" />
+                      {g.date}{g.gametime ? ` ${g.gametime}` : ''}
+                    </td>
+                    <td>
+                      <CellLabel text="Result" />
                       {g.result1 != null ? (
                         <span className="final-score">{g.team2} {g.score2} - {g.score1} {g.team1}</span>
                       ) : (

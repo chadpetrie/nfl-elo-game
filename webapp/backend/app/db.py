@@ -5,6 +5,14 @@ from .paths import DB_PATH
 
 DEFAULT_PARAMS = {"hfa": 32.0, "k": 20.0, "revert": 1 / 3.0, "mov_base": 2.2, "blend_weight": 0.5}
 
+# The shipped hfa default was recalibrated from 65 to 32 (see forecast.py). An install that
+# already has a saved model_params row keeps whatever it has - init_db() below only inserts a
+# fresh row - so without this, every existing app.db would silently stay on the old, now
+# de-calibrated value forever. Only migrate a row that's still exactly on the old default; a row
+# where someone deliberately set hfa to 65.0 themselves is indistinguishable from that and gets
+# carried along too, but that's a narrow edge case against leaving every existing install stuck.
+PREVIOUS_DEFAULT_HFA = 65.0
+
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS model_params (
     id INTEGER PRIMARY KEY CHECK (id = 1),
@@ -34,13 +42,15 @@ def init_db():
     conn = get_conn()
     try:
         conn.executescript(SCHEMA)
-        row = conn.execute("SELECT id FROM model_params WHERE id = 1").fetchone()
+        row = conn.execute("SELECT hfa FROM model_params WHERE id = 1").fetchone()
         if row is None:
             conn.execute(
                 "INSERT INTO model_params (id, hfa, k, revert, mov_base, blend_weight) VALUES (1, ?, ?, ?, ?, ?)",
                 (DEFAULT_PARAMS["hfa"], DEFAULT_PARAMS["k"], DEFAULT_PARAMS["revert"],
                  DEFAULT_PARAMS["mov_base"], DEFAULT_PARAMS["blend_weight"]),
             )
+        elif row["hfa"] == PREVIOUS_DEFAULT_HFA:
+            conn.execute("UPDATE model_params SET hfa = ? WHERE id = 1", (DEFAULT_PARAMS["hfa"],))
         conn.commit()
     finally:
         conn.close()

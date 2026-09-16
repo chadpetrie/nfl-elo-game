@@ -173,6 +173,12 @@ tr.played {
   background: transparent;
 }
 
+/* Only meaningful in the mobile card layout below, where there's no visible <thead> - the real
+   <th> headers already give the desktop table its column names. */
+.cell-label {
+  display: none;
+}
+
 .matchup {
   font-weight: 600;
 }
@@ -490,9 +496,9 @@ h2 {
 }
 
 /* Below this width the This Week table stops scrolling sideways and turns into a stack of
-   per-game cards instead, driven by the data-label attributes WeekView sets on each <td>. Scoped
-   to .week-table specifically - the Scoreboard and Power Ratings tables don't set data-label, so
-   stacking them the same way would print values with no column context. */
+   per-game cards instead, each cell preceded by the <CellLabel> WeekView renders into it. Scoped
+   to .week-table specifically - the Scoreboard and Power Ratings tables don't render CellLabels,
+   so stacking them the same way would print values with no column context. */
 @media (max-width: 700px) {
   .week-table {
     min-width: 0;
@@ -533,13 +539,13 @@ h2 {
     border-bottom: none;
   }
 
-  .week-table td::before {
-    content: attr(data-label);
+  .week-table .cell-label {
+    display: inline;
+    flex-shrink: 0;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     color: var(--text-muted);
-    flex-shrink: 0;
   }
 
   .week-table td.matchup {

@@ -73,19 +73,24 @@ def winner_matches(game, prob_field):
 
 
 def pool_points_for_user(final_games, picks):
-    """ Points a user's saved picks score in a confidence pool for one week.
+    """ Points a user's saved picks score in a confidence pool for one week, how many of those
+    picks were complete enough to grade, and the pot they were playing for.
 
-    The user's own confidence numbers are used as entered. Unpicked games score nothing but
-    still count toward the pot, so skipping games is not free.
+    The user's own confidence numbers are used as entered. Unpicked or incomplete (no confidence
+    saved) games score nothing but still count toward the pot, so skipping games is not free. A
+    tied game counts toward the pot too but, like the model sources, isn't counted as graded -
+    there's no winner to have been right or wrong about.
     """
     if not final_games:
-        return 0, 0
+        return 0, 0, 0
 
-    earned = 0
+    earned = graded = 0
     for g in final_games:
         pick = picks.get(g["game_id"])
         if not pick or pick.get("confidence") is None:
             continue
+        if is_scorable(g):
+            graded += 1
         if pick["team"] == actual_winner(g):
             earned += pick["confidence"]
-    return earned, week_pot(final_games)
+    return earned, week_pot(final_games), graded

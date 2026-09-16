@@ -83,11 +83,11 @@ def _week_summary(annotated, picks):
             "possible": pot,
         }
 
-    earned, pot = scoring.pool_points_for_user(final, picks)
+    earned, pot, graded = scoring.pool_points_for_user(final, picks)
     summary["user"] = {
         "correct": sum(1 for g in scorable
                        if picks.get(g["game_id"], {}).get("team") == scoring.actual_winner(g)),
-        "graded": sum(1 for g in scorable if g["game_id"] in picks),
+        "graded": graded,
         "earned": earned,
         "possible": pot,
     }
@@ -107,7 +107,10 @@ def list_weeks(season: int):
         raise HTTPException(status_code=404, detail="No weekly schedule for season %d" % season)
     # The first week with a game still unplayed is the one you'd actually open the app to work
     # on; once a season is fully final (games all graded) there's no such week, so fall back to
-    # the last one played rather than always defaulting back to Week 1.
+    # the last one played rather than always defaulting back to Week 1. A cancelled game (e.g.
+    # 2022's Bills-Bengals) would break this if it ever sat in the data with a permanent null
+    # result, but update_recent_games.py's source drops cancelled games entirely rather than
+    # keeping them unresolved - see test_completed_seasons_have_a_full_schedule.
     current = next(
         (w for w in weeks if any(g["result1"] is None for g in model.week_games(season, w))),
         weeks[-1],
@@ -250,10 +253,10 @@ def _build_scoreboard(model, params, picks):
             row[source][0] += scoring.pool_points_for_week(final, PROB_FIELD[source])[0]
             row[source][1] += pot
 
-        row["user"][0] += scoring.pool_points_for_user(final, picks)[0]
-        row["user"][1] += pot
-        user_picks_made[season] = user_picks_made.get(season, 0) + \
-            sum(1 for g in final if g["game_id"] in picks)
+        user_earned, user_pot, user_graded = scoring.pool_points_for_user(final, picks)
+        row["user"][0] += user_earned
+        row["user"][1] += user_pot
+        user_picks_made[season] = user_picks_made.get(season, 0) + user_graded
 
     seasons = []
     for season in sorted(brier):
