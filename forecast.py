@@ -6,7 +6,9 @@ import os
 # from anywhere (the web app and the test runner both do).
 INITIAL_ELOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "initial_elos.csv")
 
-HFA = 65.0      # Home field advantage is worth 65 Elo points
+HFA = 32.0      # Home field advantage, in Elo points; recalibrated from the actual 2021-2025 home
+                # win rate (54.5%), which implies ~32 rather than 538's original 65 (see
+                # reports/backtest_2025.md and OVERNIGHT_REPORT.md for the analysis)
 K = 20.0        # The speed at which Elo ratings change
 REVERT = 1/3.0  # Between seasons, a team retains 2/3 of its previous season's rating
 MOV_BASE = 2.2  # Base of the margin-of-victory multiplier

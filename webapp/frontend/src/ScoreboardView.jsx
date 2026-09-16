@@ -4,6 +4,9 @@ import { ErrorBanner, Loading } from './ui.jsx'
 
 function Pool({ pool }) {
   if (!pool || !pool.possible) return <span className="na">—</span>
+  // graded is only ever set on the user's own pool; 0 means no picks were saved that season,
+  // which reads as a losing "0/2235 0%" if we don't call it out separately.
+  if (pool.graded === 0) return <span className="na">no picks</span>
   return (
     <span className="pool-cell">
       {pool.earned}<span className="muted">/{pool.possible}</span>
@@ -37,8 +40,10 @@ export default function ScoreboardView() {
     return vals.length ? (vals.reduce((a, b) => a + b, 0) / vals.length).toFixed(1) : '—'
   }
   const poolPct = (get) => {
-    const vals = modern.map(get).filter(Boolean)
-    if (!vals.length) return '—'
+    // graded is only set on the user's own pool; a season with graded===0 was never played and
+    // would otherwise drag the average down as if it had been played and lost.
+    const vals = modern.map(get).filter(Boolean).filter((p) => p.graded == null || p.graded > 0)
+    if (!vals.length) return modern.some(get) ? 'no picks yet' : '—'
     const earned = vals.reduce((a, p) => a + p.earned, 0)
     const possible = vals.reduce((a, p) => a + p.possible, 0)
     return possible ? `${Math.round((100 * earned) / possible)}%` : '—'

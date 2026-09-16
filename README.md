@@ -26,21 +26,13 @@ Jump in by running `python eval.py`. You should see output ending with something
 
 ```
 
-On average, your forecasts would have gotten 652.67 points per season. Elo got 671.93 points per season.
+On average, your forecasts would have gotten 636.11 points per season. Elo got 671.93 points per season.
 
 ```
 
-Each individual season through 2020 will show identical point totals for both columns, since it's just FiveThirtyEight's Elo model running against itself. From 2021 on, the gap you're seeing is the built-in Elo replica losing to the Vegas market — expected, since the market is a much tougher benchmark than a simple public Elo model. Try to close that gap.
+Each individual season through 2020 is graded against FiveThirtyEight's own Elo forecast, and from 2021 on against the closing Vegas line instead — a much tougher benchmark, so expect the built-in model to lose ground there. Try to close that gap.
 
-Open up `forecast.py`, change the `HFA` (home-field advantage) parameter to 100, and rerun `python eval.py`. You should see the average shift to:
-
-```
-
-On average, your forecasts would have gotten 601.34 points per season. Elo got 671.93 points per season.
-
-```
-
-OK, looks like changing home-field advantage from 65 to 100 points isn't a good idea — it performs worse than the default.
+**A word of caution about this all-time average.** `forecast.py`'s default `HFA` (home-field advantage) is `32`, recalibrated from actual 2021-2025 results rather than FiveThirtyEight's originally published `65` (still the default for `K` and `MOV_BASE`, which weren't part of this recalibration). If you set `HFA` back to `65` and rerun `eval.py`, the all-time average actually *improves* to 652.67 — but that's because `forecast.py` becomes a byte-for-byte replica of FiveThirtyEight's own model for 1920-2020, and those seasons are graded against FiveThirtyEight's own Elo output, so matching their exact constant trivially wins that comparison. It says nothing about which constant predicts *real* outcomes better. For that, see `reports/backtest_2025.md` (or rerun `scripts/backtest.py`): walked forward week by week against real Vegas closing lines for 2021-2025, `HFA = 32` outscores `HFA = 65` in every one of those seasons, closing about a third of Elo's gap to the market. `OVERNIGHT_REPORT.md` has the full writeup.
 
 ## Making 2026 forecasts
 
@@ -49,9 +41,9 @@ Run `python scripts/update_recent_games.py` any time to refresh `data/nfl_games_
 ```
 
 Forecasts for upcoming games:
-2026-09-09	SEA vs. NE		63% (Elo)		69% (You)
+2026-09-09	SEA vs. NE		63% (Elo)		65% (You)
 2026-09-10	LAR vs. SF		63% (Elo)		57% (You)
-2026-09-13	CAR vs. CHI		43% (Elo)		45% (You)
+2026-09-13	CAR vs. CHI		43% (Elo)		40% (You)
 
 ```
 

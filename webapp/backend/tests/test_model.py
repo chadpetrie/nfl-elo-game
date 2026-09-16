@@ -90,12 +90,12 @@ class TestPoolScoring:
     def test_a_correct_pick_earns_its_confidence(self):
         games = [game(game_id="a", result1=1, my_prob1=0.9)]
         picks = {"a": {"team": "AAA", "confidence": 5}}
-        assert scoring.pool_points_for_user(games, picks) == (5, 1)
+        assert scoring.pool_points_for_user(games, picks) == (5, 1, 1)
 
     def test_a_wrong_pick_earns_nothing_but_costs_no_points(self):
         games = [game(game_id="a", result1=0, my_prob1=0.9)]
         picks = {"a": {"team": "AAA", "confidence": 5}}
-        earned, _ = scoring.pool_points_for_user(games, picks)
+        earned, _, _ = scoring.pool_points_for_user(games, picks)
         assert earned == 0
 
     def test_the_maximum_is_the_sum_of_one_through_n(self):
@@ -105,21 +105,28 @@ class TestPoolScoring:
     def test_skipping_a_game_still_counts_against_the_maximum(self):
         games = [game(game_id=str(i), result1=1) for i in range(3)]
         picks = {"0": {"team": "AAA", "confidence": 3}}
-        assert scoring.pool_points_for_user(games, picks) == (3, 6)
+        assert scoring.pool_points_for_user(games, picks) == (3, 6, 1)
 
     def test_a_pick_with_no_confidence_scores_nothing(self):
         games = [game(game_id="a", result1=1)]
-        assert scoring.pool_points_for_user(games, {"a": {"team": "AAA", "confidence": None}}) == (0, 1)
+        assert scoring.pool_points_for_user(games, {"a": {"team": "AAA", "confidence": None}}) == (0, 1, 0)
 
     def test_a_tie_pays_nobody_but_its_points_stay_in_the_pot(self):
         # A tie is part of the slate everyone had to rank, so the points put on it are simply
         # lost - the same thing that happens in a real pool.
         games = [game(game_id="a", result1=0.5), game(game_id="b", result1=1)]
         picks = {"a": {"team": "AAA", "confidence": 2}, "b": {"team": "AAA", "confidence": 1}}
-        assert scoring.pool_points_for_user(games, picks) == (1, 3)
+        assert scoring.pool_points_for_user(games, picks) == (1, 3, 1)
+
+    def test_a_tie_is_not_counted_as_graded_even_when_picked(self):
+        # Unlike week_pot/earned (which include the tie in the slate), graded excludes it - there
+        # is no winner for a tied game, so it can't be judged correct or incorrect either.
+        games = [game(game_id="a", result1=0.5)]
+        picks = {"a": {"team": "AAA", "confidence": 2}}
+        assert scoring.pool_points_for_user(games, picks)[2] == 0
 
     def test_an_empty_slate_has_no_pot(self):
-        assert scoring.pool_points_for_user([], {}) == (0, 0)
+        assert scoring.pool_points_for_user([], {}) == (0, 0, 0)
 
     def test_only_final_games_count_as_the_slate(self):
         games = [game(game_id="a", result1=1), game(game_id="b", result1=None)]

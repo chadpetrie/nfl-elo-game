@@ -199,6 +199,66 @@ than change a setting you'd chosen — it's a one-slider change on the Settings 
 
 ---
 
+## Parked: location, travel and rest are almost entirely unmodelled
+
+Raised 2026-08-11. **Item 1 below resolved 2026-09-16** (see the strikethrough); rest, weather,
+and travel distance are still open — noted here so they aren't rediscovered from scratch.
+
+**Current state.** Exactly one line in the model cares where a game is played
+([forecast.py:54](forecast.py#L54)): a flat **65 Elo points** to the home team, zero if the game is
+flagged neutral. Same 65 for every team, every stadium, every week. Only 40 of 1,696 modern games
+are flagged neutral. Nothing else about location exists — no travel distance, no time zones, no
+rest days, no altitude, no weather, no divisional familiarity, no personnel.
+
+**The data is already being downloaded and thrown away.** nflverse publishes **46 columns per
+game** and `scripts/update_recent_games.py` keeps 16. Sitting unused in the file we refresh every
+week:
+
+| Column | Use |
+|---|---|
+| `away_rest` / `home_rest` | Days since each team's last game — short weeks, byes |
+| `roof` / `surface` | Dome vs outdoors, grass vs turf |
+| `temp` / `wind` | Game-time weather |
+| `div_game` | Divisional matchup flag |
+| `stadium` / `stadium_id` | Join to lat/long for travel distance; per-venue home edge |
+| `weekday` | Thursday / Monday / Saturday games |
+| `away_qb_name` / `home_qb_name` | Starting quarterback |
+
+**Why it plausibly matters.** The Vegas line implicitly prices all of this — books adjust for a
+short week, a cross-country trip, a backup QB, 20mph winds. Elo prices none of it. That is a
+candidate explanation for the calibration gap above: a flat 65 applied identically to a rested
+home favourite and to one on a short week after a cross-country trip will overrate one of them,
+and the 70–80% band is where that would show up.
+
+**Cheapest experiments first**, in order, all answerable from data already on disk except the last:
+
+1. ~~**Is 65 still right?** Measure actual home-team win rate by season against what a flat 65
+   implies.~~ **Closed 2026-09-16.** It wasn't: actual home win rate (neutral-site games excluded)
+   was 54.5% for 2021-2025, implying an HFA around **32**, not 65. A backtest sweep across all five
+   seasons confirmed the lower constant helps, not just fits: Elo's pool share rises in every
+   season (season-by-season in `reports/backtest_2021.md`-`backtest_2025.md`), and calibration in
+   the 70-90% confidence bands — the specific weakness flagged above — tightens noticeably (70-80%
+   band: modelled 74.4%, actual 69.7% at HFA=65 vs. actual 70.6% at HFA=32). Shipped as the new
+   default in [forecast.py](forecast.py) and the webapp's `DEFAULT_PARAMS`; the README's `eval.py`
+   walkthrough now explains why the all-time (1920-2025) average score actually *prefers* 65 (that
+   metric is dominated by pre-2021 seasons graded against FiveThirtyEight's own Elo output, which
+   `forecast.py` exactly replicates only when `HFA=65`) while the real out-of-sample signal, the
+   2021-2025 walk-forward backtest against actual Vegas lines, clearly prefers 32. Rest, weather,
+   and travel distance (items 2-4 below) are still unmodelled.
+2. **Rest differential.** Split games by `home_rest - away_rest` and compare actual results to
+   Elo's predictions. Needs the column added to the update script.
+3. **Roof / outdoor and weather splits.** Same shape of analysis.
+4. **Travel distance.** Needs a stadium lat/long table built first, so do it last.
+
+**Caveat worth keeping.** None of this is tested. It is a hypothesis about *where* the error is,
+not a demonstrated improvement. Any change should be evaluated with `scripts/backtest.py` across
+all five seasons rather than a single one, since a change that helps 2025 and hurts 2021–2024 is
+noise. Note also that the backtest grades against completed seasons only, so beware of tuning
+constants until they fit five specific seasons — prefer changes with a mechanical reason behind
+them over ones that merely score better.
+
+---
+
 ## Follow-ups for the morning
 
 ### Needs your decision
