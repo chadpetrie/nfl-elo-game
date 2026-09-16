@@ -18,6 +18,23 @@ function actualWinner(g) {
   return null
 }
 
+// Broadcast-window tint. date is parsed as a UTC calendar date (not local midnight) so the
+// weekday can't shift with the viewer's timezone; gametime is already ET, the convention every
+// NFL broadcast window ("the early games", "Sunday night") is anchored to regardless of viewer.
+function timeSlot(g) {
+  const [y, m, d] = g.date.split('-').map(Number)
+  const weekday = new Date(Date.UTC(y, m - 1, d)).getUTCDay() // 0 = Sun, 1 = Mon, 4 = Thu
+  if (weekday === 4) return 'slot-thu'
+  if (weekday === 1) return 'slot-mon'
+  if (weekday === 0) {
+    const hour = g.gametime ? Number(g.gametime.split(':')[0]) : NaN
+    // 4:00 PM ET is the standard split between the early and late Sunday windows; Sunday Night
+    // Football (8:20 PM) counts as "late" too rather than a 5th color.
+    if (!Number.isNaN(hour) && hour >= 16) return 'slot-sun-late'
+  }
+  return null // Sunday early, Saturday, or an unscheduled kickoff time: no highlight
+}
+
 // The mobile card layout needs each cell's column name in the DOM (not just CSS ::before
 // content, which screen readers don't reliably expose) - hidden on the desktop table, where the
 // real <th> headers already do that job.
@@ -249,6 +266,18 @@ export default function WeekView() {
 
   const weekLabel = weeks.find((w) => w.week === week)?.label ?? ''
 
+  // As confidence gets assigned, the slate reorders live to show your ranking 16 down to 1 -
+  // games you haven't ranked yet trail below it, in their original kickoff order (sort is
+  // stable, so ties - including "both unranked" - keep the order they arrived in).
+  const sortedGames = [...games].sort((a, b) => {
+    const ca = a.user_pick?.confidence
+    const cb = b.user_pick?.confidence
+    if (ca != null && cb != null) return cb - ca
+    if (ca != null) return -1
+    if (cb != null) return 1
+    return 0
+  })
+
   return (
     <div>
       <div className="card">
@@ -286,6 +315,11 @@ export default function WeekView() {
             </span>
           ))}
           <span>Rank = confidence order within this week; higher means more confident.</span>
+        </div>
+        <div className="legend">
+          <span><span className="swatch swatch-outline" style={{ background: 'var(--slot-thu-bg)' }} />Thursday night</span>
+          <span><span className="swatch swatch-outline" style={{ background: 'var(--slot-sun-late-bg)' }} />Sunday late/night</span>
+          <span><span className="swatch swatch-outline" style={{ background: 'var(--slot-mon-bg)' }} />Monday night</span>
         </div>
       </div>
 
@@ -329,8 +363,11 @@ export default function WeekView() {
                 </tr>
               </thead>
               <tbody>
-                {games.map((g) => (
-                  <tr key={g.game_id} className={g.result1 != null ? 'played' : ''}>
+                {sortedGames.map((g) => (
+                  <tr
+                    key={g.game_id}
+                    className={[g.result1 != null ? 'played' : '', timeSlot(g)].filter(Boolean).join(' ')}
+                  >
                     <td className="matchup">
                       <CellLabel text="Matchup" />
                       <span className="matchup-value">

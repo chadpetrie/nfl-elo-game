@@ -15,6 +15,9 @@
   --success-bg: #ecfdf3;
   --danger: #b91c1c;
   --danger-bg: #fef2f2;
+  --slot-thu-bg: #fdece7;
+  --slot-sun-late-bg: #e8f4f8;
+  --slot-mon-bg: #fbeaf1;
   --radius: 10px;
   color-scheme: light dark;
 }
@@ -37,6 +40,9 @@
     --success-bg: #10281c;
     --danger: #f87171;
     --danger-bg: #3a1616;
+    --slot-thu-bg: #2e1f19;
+    --slot-sun-late-bg: #14252b;
+    --slot-mon-bg: #2a1a22;
   }
 }
 
@@ -173,6 +179,20 @@ tr.played {
   background: transparent;
 }
 
+/* Broadcast-window tint, independent of .played - scoped past it (which forces transparent) so
+   a finished game keeps its time-slot color instead of losing it. */
+.week-table tbody tr.slot-thu {
+  background: var(--slot-thu-bg);
+}
+
+.week-table tbody tr.slot-sun-late {
+  background: var(--slot-sun-late-bg);
+}
+
+.week-table tbody tr.slot-mon {
+  background: var(--slot-mon-bg);
+}
+
 /* Only meaningful in the mobile card layout below, where there's no visible <thead> - the real
    <th> headers already give the desktop table its column names. */
 .cell-label {
@@ -286,6 +306,10 @@ tr.played {
   height: 8px;
   border-radius: 2px;
   margin-right: 5px;
+}
+
+.legend .swatch-outline {
+  border: 1px solid var(--border);
 }
 
 .params-form {
