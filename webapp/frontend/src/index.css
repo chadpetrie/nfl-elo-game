@@ -3,6 +3,7 @@
   --surface: #ffffff;
   --border: #e3e5ea;
   --text: #16181d;
+  --text-inverse: #ffffff;
   --text-muted: #6b7280;
   --text-faint: #9aa1ab;
   --accent-elo: #2563eb;
@@ -15,7 +16,28 @@
   --danger: #b91c1c;
   --danger-bg: #fef2f2;
   --radius: 10px;
-  color-scheme: light;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101215;
+    --surface: #1a1d22;
+    --border: #2d3138;
+    --text: #e8e9ec;
+    --text-inverse: #101215;
+    --text-muted: #9aa1ab;
+    --text-faint: #6b7280;
+    --accent-elo: #60a5fa;
+    --accent-vegas: #b092f5;
+    --accent-combined: #2dd4bf;
+    --accent-top: #f2b84b;
+    --top-bg: #3a2e15;
+    --success: #4ade80;
+    --success-bg: #10281c;
+    --danger: #f87171;
+    --danger-bg: #3a1616;
+  }
 }
 
 * {
@@ -62,6 +84,7 @@ body {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 4px;
+  overflow-x: auto;
 }
 
 .tabs button {
@@ -71,13 +94,14 @@ body {
   border-radius: 7px;
   font-size: 14px;
   font-weight: 500;
+  white-space: nowrap;
   color: var(--text-muted);
   cursor: pointer;
 }
 
 .tabs button.active {
   background: var(--text);
-  color: #fff;
+  color: var(--text-inverse);
 }
 
 .card {
@@ -190,7 +214,7 @@ tr.played {
   border-radius: 6px;
   font-size: 11px;
   font-weight: 700;
-  background: #eef0f3;
+  background: var(--bg);
   color: var(--text-muted);
 }
 
@@ -294,7 +318,7 @@ tr.played {
 
 button.primary {
   background: var(--text);
-  color: #fff;
+  color: var(--text-inverse);
   border: none;
   border-radius: 7px;
   padding: 9px 18px;
@@ -426,10 +450,17 @@ h2 {
   font-weight: 600;
 }
 
+.elo-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .elo-bar {
   position: relative;
-  width: 220px;
+  width: 180px;
   height: 18px;
+  flex-shrink: 0;
 }
 
 .elo-bar-mid {
@@ -452,10 +483,66 @@ h2 {
 .elo-bar-fill.neg { background: var(--accent-vegas); }
 
 .elo-bar-label {
-  position: absolute;
-  right: 0;
-  top: 1px;
   font-size: 11px;
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
+  min-width: 32px;
+}
+
+/* Below this width the This Week table stops scrolling sideways and turns into a stack of
+   per-game cards instead, driven by the data-label attributes WeekView sets on each <td>. Scoped
+   to .week-table specifically - the Scoreboard and Power Ratings tables don't set data-label, so
+   stacking them the same way would print values with no column context. */
+@media (max-width: 700px) {
+  .week-table {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .week-table thead {
+    display: none;
+  }
+
+  .week-table tbody, .week-table tr, .week-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .week-table tr {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 4px 12px;
+    margin-bottom: 12px;
+  }
+
+  .week-table tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .week-table td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    white-space: normal;
+  }
+
+  .week-table tr td:last-child {
+    border-bottom: none;
+  }
+
+  .week-table td::before {
+    content: attr(data-label);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  .week-table td.matchup {
+    font-size: 15px;
+  }
 }

@@ -32,6 +32,29 @@ class TestSeasonsAndWeeks:
     def test_a_non_numeric_season_is_rejected(self, client):
         assert client.get("/api/weeks?season=nonsense").status_code == 422
 
+    def test_exactly_one_week_is_flagged_current(self, client):
+        weeks = client.get(f"/api/weeks?season={SEASON}").json()
+        assert sum(1 for w in weeks if w["current"]) == 1
+
+    def test_a_fully_played_season_treats_its_last_week_as_current(self, client):
+        # SEASON (2025) is complete, so there's no "week you still need to pick" - the last one
+        # played is the sane fallback rather than always snapping back to Week 1.
+        weeks = client.get(f"/api/weeks?season={SEASON}").json()
+        assert next(w for w in weeks if w["current"])["week"] == weeks[-1]["week"]
+
+    def test_current_week_is_the_first_one_with_an_unplayed_game(self, client):
+        # Uses whatever the newest season actually is instead of a hardcoded year, so this stays
+        # correct as more of that season gets played and the data file is refreshed.
+        newest = max(client.get("/api/seasons").json())
+        weeks = client.get(f"/api/weeks?season={newest}").json()
+
+        def has_unplayed(week):
+            games = client.get(f"/api/games?season={newest}&week={week}").json()["games"]
+            return any(g["result1"] is None for g in games)
+
+        expected = next((w["week"] for w in weeks if has_unplayed(w["week"])), weeks[-1]["week"])
+        assert next(w for w in weeks if w["current"])["week"] == expected
+
 
 class TestGames:
     def test_a_regular_season_week_has_the_expected_shape(self, week_games):
@@ -66,7 +89,11 @@ class TestGames:
             assert summary[source]["possible"] == 16 * 17 // 2
 
     def test_an_unplayed_season_reports_no_results(self, client):
-        summary = client.get("/api/games?season=2026&week=1").json()["summary"]
+        # The newest season's last week (e.g. the Super Bowl) rather than a hardcoded season/week:
+        # week 1 goes stale the moment that week is actually played and the data gets refreshed.
+        newest = max(client.get("/api/seasons").json())
+        last_week = client.get(f"/api/weeks?season={newest}").json()[-1]["week"]
+        summary = client.get(f"/api/games?season={newest}&week={last_week}").json()["summary"]
         assert summary["played"] == 0
 
     def test_an_unknown_week_is_a_404(self, client):
@@ -137,9 +164,11 @@ class TestPicks:
 
 
 class TestParams:
-    def test_defaults_are_the_published_538_values(self, client):
+    def test_defaults_are_recalibrated_from_538s_published_values(self, client):
         p = client.get("/api/params").json()
-        assert p["hfa"] == 65.0 and p["k"] == 20.0 and p["mov_base"] == 2.2
+        # hfa is recalibrated from the actual 2021-2025 home win rate; 538's original was 65.
+        # k and mov_base are unchanged from 538's published values.
+        assert p["hfa"] == 32.0 and p["k"] == 20.0 and p["mov_base"] == 2.2
 
     def test_saving_parameters_changes_the_forecast(self, client):
         before = client.get(f"/api/games?season={SEASON}&week={WEEK}").json()["games"][0]["elo_prob"]
@@ -213,13 +242,22 @@ class TestScoreboard:
                 if pool:
                     assert 0 <= pool["earned"] <= pool["possible"]
 
+    def test_a_season_with_no_saved_picks_is_flagged_rather_than_scored_zero(self, client):
+        # No picks have been made anywhere yet in a fresh test db, so every season's user pool
+        # should say so via graded=0 rather than looking like a real 0-point performance.
+        rows = client.get("/api/scoreboard").json()["seasons"]
+        graded = [r["user_pool"]["graded"] for r in rows if r["user_pool"]]
+        assert graded and all(g == 0 for g in graded)
+
     def test_saved_picks_show_up_in_the_pool_score(self, client, week_games):
         before = _pool(client, SEASON, "user")["earned"]
+        assert _pool(client, SEASON, "user")["graded"] == 0
         for g in week_games:
             client.put(f"/api/games/{g['game_id']}/pick",
                        json={"team": g["elo_pick"], "confidence": g["elo_rank"]})
         after = _pool(client, SEASON, "user")
         assert after["earned"] > before
+        assert after["graded"] == len(week_games)
 
     def test_copying_elo_exactly_reproduces_its_score(self, client):
         """ The strongest check that user and model scoring share one rule. """

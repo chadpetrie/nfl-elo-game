@@ -105,8 +105,16 @@ def list_weeks(season: int):
     weeks = model.weeks_for(season)
     if not weeks:
         raise HTTPException(status_code=404, detail="No weekly schedule for season %d" % season)
+    # The first week with a game still unplayed is the one you'd actually open the app to work
+    # on; once a season is fully final (games all graded) there's no such week, so fall back to
+    # the last one played rather than always defaulting back to Week 1.
+    current = next(
+        (w for w in weeks if any(g["result1"] is None for g in model.week_games(season, w))),
+        weeks[-1],
+    )
     return [{"week": w, "game_type": model.week_types[(season, w)],
-             "label": ranking.week_label(w, model.week_types[(season, w)])} for w in weeks]
+             "label": ranking.week_label(w, model.week_types[(season, w)]),
+             "current": w == current} for w in weeks]
 
 
 @app.get("/api/games")
@@ -229,6 +237,7 @@ def _build_scoreboard(model, params, picks):
 
     # Confidence-pool scoring needs games grouped into weeks, which only exists for 2021+.
     pool = {}
+    user_picks_made = {}
     for (season, week) in sorted(model.by_season_week):
         week_games = model.week_games(season, week)
         final = [g for g in ranking.annotate(week_games, blend) if scoring.is_final(g)]
@@ -243,6 +252,8 @@ def _build_scoreboard(model, params, picks):
 
         row["user"][0] += scoring.pool_points_for_user(final, picks)[0]
         row["user"][1] += pot
+        user_picks_made[season] = user_picks_made.get(season, 0) + \
+            sum(1 for g in final if g["game_id"] in picks)
 
     seasons = []
     for season in sorted(brier):
@@ -257,6 +268,8 @@ def _build_scoreboard(model, params, picks):
         for source in SOURCES + ("user",):
             if p and p[source][1]:
                 row["%s_pool" % source] = {"earned": p[source][0], "possible": p[source][1]}
+                if source == "user":
+                    row["user_pool"]["graded"] = user_picks_made.get(season, 0)
             else:
                 row["%s_pool" % source] = None
         seasons.append(row)

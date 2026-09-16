@@ -50,14 +50,16 @@ export default function RankingsView() {
                   <td className="pred-team">{r.team}</td>
                   <td>{r.elo}</td>
                   <td>
-                    <div className="elo-bar">
-                      <span className="elo-bar-mid" />
-                      <span
-                        className={diff >= 0 ? 'elo-bar-fill pos' : 'elo-bar-fill neg'}
-                        style={diff >= 0
-                          ? { left: '50%', width: `${width}%` }
-                          : { right: '50%', width: `${width}%` }}
-                      />
+                    <div className="elo-bar-row">
+                      <div className="elo-bar">
+                        <span className="elo-bar-mid" />
+                        <span
+                          className={diff >= 0 ? 'elo-bar-fill pos' : 'elo-bar-fill neg'}
+                          style={diff >= 0
+                            ? { left: '50%', width: `${width}%` }
+                            : { right: '50%', width: `${width}%` }}
+                        />
+                      </div>
                       <span className="elo-bar-label">{diff >= 0 ? '+' : ''}{Math.round(diff)}</span>
                     </div>
                   </td>

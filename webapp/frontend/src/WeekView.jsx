@@ -23,13 +23,13 @@ function PredictionCell({ game, source, maxRank }) {
   const pick = game[`${source.id}_pick`]
   const rank = game[`${source.id}_rank`]
   if (prob == null) {
-    return <td className={source.className}><span className="na">odds not posted</span></td>
+    return <td className={source.className} data-label={source.label}><span className="na">odds not posted</span></td>
   }
   const winner = actualWinner(game)
   const correct = winner != null ? pick === winner : null
 
   return (
-    <td className={source.className}>
+    <td className={source.className} data-label={source.label}>
       <div className="pred">
         <span className={`rank-badge ${rank === maxRank ? 'top' : ''}`}>{rank}</span>
         <span className="pred-team">{pick}</span>
@@ -60,7 +60,7 @@ function PickCell({ game, maxConfidence, duplicate, onSave, onClear }) {
   }
 
   return (
-    <td>
+    <td data-label="Your pick">
       <div className="pick-cell">
         <select value={team} onChange={(e) => changeTeam(e.target.value)} aria-label="Your pick">
           <option value="">—</option>
@@ -134,7 +134,7 @@ export default function WeekView() {
       .then((w) => {
         if (id !== weekReq.current) return
         setWeeks(w)
-        setWeek(w.length ? w[0].week : null)
+        setWeek(w.length ? (w.find((x) => x.current) ?? w[0]).week : null)
         if (!w.length) { setGames([]); setSummary(null); setLoading(false) }
       })
       .catch((e) => { if (id === weekReq.current) { setError(e); setLoading(false) } })
@@ -304,7 +304,7 @@ export default function WeekView() {
           <div className="empty-state">No games found for this week.</div>
         ) : (
           <div className="table-scroll">
-            <table>
+            <table className="week-table">
               <thead>
                 <tr>
                   <th>Matchup</th>
@@ -317,11 +317,11 @@ export default function WeekView() {
               <tbody>
                 {games.map((g) => (
                   <tr key={g.game_id} className={g.result1 != null ? 'played' : ''}>
-                    <td className="matchup">
+                    <td className="matchup" data-label="Matchup">
                       <span className="away">{g.team2}</span> @ {g.team1}
                     </td>
-                    <td className="kickoff">{g.date}{g.gametime ? ` ${g.gametime}` : ''}</td>
-                    <td>
+                    <td className="kickoff" data-label="Kickoff">{g.date}{g.gametime ? ` ${g.gametime}` : ''}</td>
+                    <td data-label="Result">
                       {g.result1 != null ? (
                         <span className="final-score">{g.team2} {g.score2} - {g.score1} {g.team1}</span>
                       ) : (
