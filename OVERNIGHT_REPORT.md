@@ -201,7 +201,8 @@ than change a setting you'd chosen — it's a one-slider change on the Settings 
 
 ## Parked: location, travel and rest are almost entirely unmodelled
 
-Raised 2026-08-11. Not investigated yet — noted here so it isn't rediscovered from scratch.
+Raised 2026-08-11. **Item 1 below resolved 2026-09-16** (see the strikethrough); rest, weather,
+and travel distance are still open — noted here so they aren't rediscovered from scratch.
 
 **Current state.** Exactly one line in the model cares where a game is played
 ([forecast.py:54](forecast.py#L54)): a flat **65 Elo points** to the home team, zero if the game is
@@ -231,10 +232,19 @@ and the 70–80% band is where that would show up.
 
 **Cheapest experiments first**, in order, all answerable from data already on disk except the last:
 
-1. **Is 65 still right?** Measure actual home-team win rate by season against what a flat 65
-   implies. League-wide home advantage has reportedly fallen since ~2020. This needs no new data
-   and no new columns — just a query — and if HFA should now be ~40, that is a one-constant fix
-   that could recover much of the gap on its own.
+1. ~~**Is 65 still right?** Measure actual home-team win rate by season against what a flat 65
+   implies.~~ **Closed 2026-09-16.** It wasn't: actual home win rate (neutral-site games excluded)
+   was 54.5% for 2021-2025, implying an HFA around **32**, not 65. A backtest sweep across all five
+   seasons confirmed the lower constant helps, not just fits: Elo's pool share rises in every
+   season (season-by-season in `reports/backtest_2021.md`-`backtest_2025.md`), and calibration in
+   the 70-90% confidence bands — the specific weakness flagged above — tightens noticeably (70-80%
+   band: modelled 74.4%, actual 69.7% at HFA=65 vs. actual 70.6% at HFA=32). Shipped as the new
+   default in [forecast.py](forecast.py) and the webapp's `DEFAULT_PARAMS`; the README's `eval.py`
+   walkthrough now explains why the all-time (1920-2025) average score actually *prefers* 65 (that
+   metric is dominated by pre-2021 seasons graded against FiveThirtyEight's own Elo output, which
+   `forecast.py` exactly replicates only when `HFA=65`) while the real out-of-sample signal, the
+   2021-2025 walk-forward backtest against actual Vegas lines, clearly prefers 32. Rest, weather,
+   and travel distance (items 2-4 below) are still unmodelled.
 2. **Rest differential.** Split games by `home_rest - away_rest` and compare actual results to
    Elo's predictions. Needs the column added to the update script.
 3. **Roof / outdoor and weather splits.** Same shape of analysis.

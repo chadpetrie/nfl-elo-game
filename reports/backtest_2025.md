@@ -10,42 +10,40 @@ Every forecast below was made with only the games that had already been played, 
 
 | Forecaster | Straight up | Win rate | Confidence pool | Pool share | Brier points |
 |---|---|---|---|---|---|
-| Elo | 181-103 | 63.7% | 1507 / 2235 | 67.4% | 778.4 |
+| Elo | 181-103 | 63.7% | 1536 / 2235 | 68.7% | 866.6 |
 | Vegas | 187-97 | 65.8% | 1603 / 2235 | 71.7% | 1189.0 |
-| Combined | 190-94 | 66.9% | 1572 / 2235 | 70.3% | 1055.2 |
+| Combined | 186-98 | 65.5% | 1577 / 2235 | 70.6% | 1096.8 |
 
-**Vegas won the confidence pool**, and **Combined picked the most winners outright** (190-94). Elo trailed Vegas by 96 pool points (4.3 percentage points) and 411 Brier points.
-
-That split is worth sitting with: blending the model into the market picked more games correctly than the market alone, but the market was better at knowing *which* of its picks to trust, which is what the pool actually pays for.
+**Vegas won the confidence pool**, and **Vegas picked the most winners outright** (187-97). Elo trailed Vegas by 67 pool points (3.0 percentage points) and 322 Brier points.
 
 ## Week by week
 
 | Week | Games | Elo | Vegas | Combined | Elo pool | Vegas pool | Pot |
 |---|---|---|---|---|---|---|---|
-| Week 1 | 16 | 12-4 | 13-3 | 13-3 | 101 | 113 | 136 |
-| Week 2 | 16 | 11-5 | 11-5 | 11-5 | 101 | 113 | 136 |
-| Week 3 | 16 | 11-5 | 12-4 | 12-4 | 108 | 99 | 136 |
-| Week 4 | 16 | 10-5 | 10-5 | 10-5 | 90 | 93 | 136 |
-| Week 5 | 14 | 4-10 | 5-9 | 4-10 | 26 | 38 | 105 |
-| Week 6 | 15 | 8-7 | 11-4 | 11-4 | 69 | 89 | 120 |
-| Week 7 | 15 | 11-4 | 12-3 | 11-4 | 103 | 105 | 120 |
-| Week 8 | 13 | 11-2 | 11-2 | 11-2 | 72 | 76 | 91 |
-| Week 9 | 14 | 9-5 | 8-6 | 8-6 | 61 | 62 | 105 |
-| Week 10 | 14 | 9-5 | 8-6 | 10-4 | 69 | 74 | 105 |
-| Week 11 | 15 | 10-5 | 11-4 | 11-4 | 95 | 98 | 120 |
-| Week 12 | 14 | 10-4 | 10-4 | 10-4 | 86 | 88 | 105 |
+| Week 1 | 16 | 11-5 | 13-3 | 10-6 | 107 | 113 | 136 |
+| Week 2 | 16 | 12-4 | 11-5 | 11-5 | 109 | 113 | 136 |
+| Week 3 | 16 | 10-6 | 12-4 | 11-5 | 99 | 99 | 136 |
+| Week 4 | 16 | 11-4 | 10-5 | 9-6 | 85 | 93 | 136 |
+| Week 5 | 14 | 5-9 | 5-9 | 5-9 | 33 | 38 | 105 |
+| Week 6 | 15 | 9-6 | 11-4 | 11-4 | 72 | 89 | 120 |
+| Week 7 | 15 | 10-5 | 12-3 | 11-4 | 100 | 105 | 120 |
+| Week 8 | 13 | 10-3 | 11-2 | 11-2 | 74 | 76 | 91 |
+| Week 9 | 14 | 8-6 | 8-6 | 9-5 | 66 | 62 | 105 |
+| Week 10 | 14 | 10-4 | 8-6 | 10-4 | 74 | 74 | 105 |
+| Week 11 | 15 | 11-4 | 11-4 | 11-4 | 94 | 98 | 120 |
+| Week 12 | 14 | 9-5 | 10-4 | 10-4 | 84 | 88 | 105 |
 | Week 13 | 16 | 9-7 | 9-7 | 9-7 | 84 | 86 | 136 |
-| Week 14 | 14 | 9-5 | 7-7 | 9-5 | 69 | 66 | 105 |
-| Week 15 | 16 | 12-4 | 10-6 | 11-5 | 107 | 101 | 136 |
-| Week 16 | 16 | 7-9 | 10-6 | 9-7 | 68 | 89 | 136 |
-| Week 17 | 16 | 8-8 | 9-7 | 9-7 | 75 | 86 | 136 |
-| Week 18 | 16 | 11-5 | 10-6 | 10-6 | 95 | 100 | 136 |
-| Wild Card | 6 | 4-2 | 3-3 | 4-2 | 16 | 13 | 21 |
+| Week 14 | 14 | 9-5 | 7-7 | 8-6 | 70 | 66 | 105 |
+| Week 15 | 16 | 12-4 | 10-6 | 11-5 | 108 | 101 | 136 |
+| Week 16 | 16 | 8-8 | 10-6 | 10-6 | 76 | 89 | 136 |
+| Week 17 | 16 | 8-8 | 9-7 | 9-7 | 81 | 86 | 136 |
+| Week 18 | 16 | 10-6 | 10-6 | 10-6 | 91 | 100 | 136 |
+| Wild Card | 6 | 4-2 | 3-3 | 3-3 | 17 | 13 | 21 |
 | Divisional | 4 | 3-1 | 4-0 | 4-0 | 9 | 10 | 10 |
 | Conf Champ | 2 | 1-1 | 2-0 | 2-0 | 2 | 3 | 3 |
 | Super Bowl | 1 | 1-0 | 1-0 | 1-0 | 1 | 1 | 1 |
 
-Ignoring the playoff rounds, which are too small to compare, Elo's best week was Week 7 (103 of 120 pool points, 11-4 straight up) and its worst was Week 5 (26 of 105, 4-10).
+Ignoring the playoff rounds, which are too small to compare, Elo's best week was Week 7 (100 of 120 pool points, 10-5 straight up) and its worst was Week 5 (33 of 105, 5-9).
 
 Elo out-scored Vegas in 4 of 22 weeks, so the season gap is not one bad afternoon - the market was ahead most weeks.
 
@@ -55,11 +53,10 @@ When the model says 75%, does the favourite win about 75% of the time?
 
 | Stated confidence | Games | Model said | Actually won |
 |---|---|---|---|
-| 50-60% | 98 | 54.2% | 54.1% |
-| 60-70% | 79 | 64.2% | 68.4% |
-| 70-80% | 69 | 74.2% | 62.3% |
-| 80-90% | 34 | 84.1% | 79.4% |
-| 90-100% | 4 | 90.8% | 100.0% |
+| 50-60% | 121 | 55.2% | 54.5% |
+| 60-70% | 70 | 64.9% | 68.6% |
+| 70-80% | 65 | 74.7% | 69.2% |
+| 80-90% | 28 | 84.5% | 78.6% |
 
 Same question for Vegas:
 
@@ -77,12 +74,12 @@ Confident calls that came in.
 
 | Week | Game | Score | Elo's pick | Confidence | Result |
 |---|---|---|---|---|---|
-| Week 18 | NYJ @ BUF | 8-35 | BUF | 92% | correct |
-| Week 16 | OAK @ HOU | 21-23 | HOU | 91% | correct |
-| Week 18 | TEN @ JAX | 7-41 | JAX | 90% | correct |
-| Week 15 | OAK @ PHI | 0-31 | PHI | 90% | correct |
-| Week 18 | ARI @ LAR | 20-37 | LAR | 90% | correct |
-| Week 15 | TEN @ SF | 24-37 | SF | 89% | correct |
+| Week 18 | NYJ @ BUF | 8-35 | BUF | 90% | correct |
+| Week 16 | OAK @ HOU | 21-23 | HOU | 89% | correct |
+| Week 18 | TEN @ JAX | 7-41 | JAX | 88% | correct |
+| Week 15 | OAK @ PHI | 0-31 | PHI | 88% | correct |
+| Week 18 | ARI @ LAR | 20-37 | LAR | 87% | correct |
+| Week 12 | SEA @ TEN | 30-24 | SEA | 87% | correct |
 
 ## Elo's biggest misses
 
@@ -90,12 +87,12 @@ Confident calls that did not.
 
 | Week | Game | Score | Elo's pick | Confidence | Result |
 |---|---|---|---|---|---|
-| Week 5 | NE @ BUF | 23-20 | BUF | 86% | **wrong** |
-| Week 18 | WSH @ PHI | 24-17 | PHI | 86% | **wrong** |
-| Week 9 | CAR @ GB | 16-13 | GB | 85% | **wrong** |
-| Week 6 | PHI @ NYG | 17-34 | PHI | 83% | **wrong** |
-| Week 14 | NO @ TB | 24-20 | TB | 82% | **wrong** |
-| Week 13 | CIN @ BAL | 32-14 | BAL | 81% | **wrong** |
+| Week 6 | PHI @ NYG | 17-34 | PHI | 85% | **wrong** |
+| Week 16 | KC @ TEN | 9-26 | KC | 84% | **wrong** |
+| Week 5 | NE @ BUF | 23-20 | BUF | 83% | **wrong** |
+| Week 18 | WSH @ PHI | 24-17 | PHI | 83% | **wrong** |
+| Week 9 | CAR @ GB | 16-13 | GB | 82% | **wrong** |
+| Week 13 | LAR @ CAR | 28-31 | LAR | 80% | **wrong** |
 
 ## Where Elo and Vegas disagreed
 
@@ -103,14 +100,14 @@ The games the model and the market picked differently, widest gap first.
 
 | Week | Game | Score | Elo | Vegas | Winner | Right |
 |---|---|---|---|---|---|---|
-| Week 17 | DAL @ WSH | 30-23 | WSH 56% | DAL 80% | DAL | **Vegas** |
-| Week 16 | CIN @ MIA | 45-21 | MIA 67% | CIN 64% | CIN | **Vegas** |
-| Week 6 | LAR @ BAL | 17-3 | BAL 55% | LAR 75% | LAR | **Vegas** |
-| Week 5 | HOU @ BAL | 44-10 | BAL 71% | HOU 57% | HOU | **Vegas** |
-| Conf Champ | NE @ DEN | 10-7 | DEN 63% | NE 64% | NE | **Vegas** |
-| Week 11 | KC @ DEN | 19-22 | DEN 58% | KC 66% | DEN | **Elo** |
-| Week 1 | ARI @ NO | 20-13 | NO 53% | ARI 70% | ARI | **Vegas** |
-| Week 17 | TB @ MIA | 17-20 | MIA 54% | TB 69% | MIA | **Elo** |
+| Week 17 | DAL @ WSH | 30-23 | WSH 50% | DAL 80% | DAL | **Vegas** |
+| Week 16 | CIN @ MIA | 45-21 | MIA 62% | CIN 64% | CIN | **Vegas** |
+| Week 6 | LAR @ BAL | 17-3 | BAL 51% | LAR 75% | LAR | **Vegas** |
+| Week 5 | HOU @ BAL | 44-10 | BAL 67% | HOU 57% | HOU | **Vegas** |
+| Conf Champ | NE @ DEN | 10-7 | DEN 59% | NE 64% | NE | **Vegas** |
+| Week 4 | WSH @ ATL | 27-34 | WSH 65% | ATL 56% | ATL | **Vegas** |
+| Week 11 | KC @ DEN | 19-22 | DEN 54% | KC 66% | DEN | **Elo** |
+| Week 10 | BAL @ MIN | 27-19 | MIN 51% | BAL 67% | BAL | **Vegas** |
 
 Across all 40 disagreements, Elo was right 17 times and Vegas 23.
 
@@ -120,14 +117,14 @@ Average error in the win probability Elo gave each team. A positive number means
 
 | Team | Games | Elo's bias |
 |---|---|---|
-| KC | 17 | +26.7 pts |
-| NE | 21 | -26.6 pts |
-| ARI | 17 | +22.6 pts |
-| JAX | 18 | -22.2 pts |
+| NE | 21 | -26.8 pts |
+| KC | 17 | +26.2 pts |
+| ARI | 17 | +23.2 pts |
+| JAX | 18 | -22.1 pts |
 | SEA | 20 | -21.6 pts |
-| WSH | 17 | +18.5 pts |
+| CHI | 19 | -18.4 pts |
 
-Elo held on to KC, ARI and WSH long after their results stopped justifying it, and was equally slow to credit NE, JAX and SEA. That is the standing cost of a rating that only reads the scoreboard: it cannot hear about a roster change until enough games have gone the other way.
+Elo held on to KC and ARI long after their results stopped justifying it, and was equally slow to credit NE, JAX and SEA. That is the standing cost of a rating that only reads the scoreboard: it cannot hear about a roster change until enough games have gone the other way.
 
 ## Appendix: every weekly recommendation
 
@@ -138,103 +135,103 @@ The pick and confidence rank each forecaster would have entered, before the game
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
 | DAL @ PHI | 20-24 | PHI ✓ | 16 | PHI ✓ | 15 | PHI ✓ | PHI |
-| KC @ LAC | 21-27 | KC ✗ | 12 | KC ✗ | 10 | KC ✗ | LAC |
-| TB @ ATL | 23-20 | TB ✓ | 5 | TB ✓ | 3 | TB ✓ | TB |
-| CIN @ CLE | 17-16 | CIN ✓ | 9 | CIN ✓ | 12 | CIN ✓ | CIN |
-| MIA @ IND | 8-33 | IND ✓ | 3 | IND ✓ | 2 | IND ✓ | IND |
-| CAR @ JAX | 10-26 | JAX ✓ | 11 | JAX ✓ | 11 | JAX ✓ | JAX |
-| OAK @ NE | 20-13 | NE ✗ | 6 | NE ✗ | 8 | NE ✗ | OAK |
-| ARI @ NO | 20-13 | NO ✗ | 4 | ARI ✓ | 13 | ARI ✓ | ARI |
-| PIT @ NYJ | 34-32 | PIT ✓ | 1 | PIT ✓ | 7 | PIT ✓ | PIT |
-| NYG @ WSH | 6-21 | WSH ✓ | 15 | WSH ✓ | 14 | WSH ✓ | WSH |
-| TEN @ DEN | 12-20 | DEN ✓ | 14 | DEN ✓ | 16 | DEN ✓ | DEN |
-| SF @ SEA | 17-13 | SEA ✗ | 13 | SF ✓ | 6 | SEA ✗ | SF |
-| DET @ GB | 13-27 | GB ✓ | 2 | GB ✓ | 4 | GB ✓ | GB |
-| HOU @ LAR | 9-14 | LAR ✓ | 10 | LAR ✓ | 9 | LAR ✓ | LAR |
-| BAL @ BUF | 40-41 | BUF ✓ | 7 | BAL ✗ | 5 | BUF ✓ | BUF |
-| MIN @ CHI | 27-24 | MIN ✓ | 8 | MIN ✓ | 1 | MIN ✓ | MIN |
+| KC @ LAC | 21-27 | KC ✗ | 11 | KC ✗ | 10 | KC ✗ | LAC |
+| TB @ ATL | 23-20 | TB ✓ | 9 | TB ✓ | 3 | TB ✓ | TB |
+| CIN @ CLE | 17-16 | CIN ✓ | 13 | CIN ✓ | 12 | CIN ✓ | CIN |
+| MIA @ IND | 8-33 | MIA ✗ | 1 | IND ✓ | 2 | MIA ✗ | IND |
+| CAR @ JAX | 10-26 | JAX ✓ | 8 | JAX ✓ | 11 | JAX ✓ | JAX |
+| OAK @ NE | 20-13 | NE ✗ | 4 | NE ✗ | 8 | NE ✗ | OAK |
+| ARI @ NO | 20-13 | ARI ✓ | 2 | ARI ✓ | 13 | ARI ✓ | ARI |
+| PIT @ NYJ | 34-32 | PIT ✓ | 6 | PIT ✓ | 7 | PIT ✓ | PIT |
+| NYG @ WSH | 6-21 | WSH ✓ | 14 | WSH ✓ | 14 | WSH ✓ | WSH |
+| TEN @ DEN | 12-20 | DEN ✓ | 15 | DEN ✓ | 16 | DEN ✓ | DEN |
+| SF @ SEA | 17-13 | SEA ✗ | 10 | SF ✓ | 6 | SEA ✗ | SF |
+| DET @ GB | 13-27 | DET ✗ | 3 | GB ✓ | 4 | DET ✗ | GB |
+| HOU @ LAR | 9-14 | LAR ✓ | 7 | LAR ✓ | 9 | LAR ✓ | LAR |
+| BAL @ BUF | 40-41 | BUF ✓ | 5 | BAL ✗ | 5 | BAL ✗ | BUF |
+| MIN @ CHI | 27-24 | MIN ✓ | 12 | MIN ✓ | 1 | MIN ✓ | MIN |
 
 ### Week 2
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
-| WSH @ GB | 18-27 | GB ✓ | 6 | GB ✓ | 7 | GB ✓ | GB |
+| WSH @ GB | 18-27 | GB ✓ | 5 | GB ✓ | 7 | GB ✓ | GB |
 | CLE @ BAL | 17-41 | BAL ✓ | 16 | BAL ✓ | 16 | BAL ✓ | BAL |
-| JAX @ CIN | 27-31 | CIN ✓ | 12 | CIN ✓ | 9 | CIN ✓ | CIN |
-| NYG @ DAL | 37-40 | DAL ✓ | 11 | DAL ✓ | 11 | DAL ✓ | DAL |
+| JAX @ CIN | 27-31 | CIN ✓ | 10 | CIN ✓ | 9 | CIN ✓ | CIN |
+| NYG @ DAL | 37-40 | DAL ✓ | 9 | DAL ✓ | 11 | DAL ✓ | DAL |
 | CHI @ DET | 21-52 | DET ✓ | 15 | DET ✓ | 13 | DET ✓ | DET |
-| NE @ MIA | 33-27 | MIA ✗ | 10 | MIA ✗ | 2 | MIA ✗ | NE |
-| SF @ NO | 26-21 | SF ✓ | 4 | SF ✓ | 5 | SF ✓ | SF |
-| BUF @ NYJ | 30-10 | BUF ✓ | 9 | BUF ✓ | 14 | BUF ✓ | BUF |
-| SEA @ PIT | 31-17 | PIT ✗ | 7 | PIT ✗ | 8 | PIT ✗ | SEA |
-| LAR @ TEN | 33-19 | LAR ✓ | 8 | LAR ✓ | 12 | LAR ✓ | LAR |
-| CAR @ ARI | 22-27 | ARI ✓ | 13 | ARI ✓ | 15 | ARI ✓ | ARI |
-| DEN @ IND | 28-29 | DEN ✗ | 1 | DEN ✗ | 3 | DEN ✗ | IND |
-| PHI @ KC | 20-17 | PHI ✓ | 2 | PHI ✓ | 1 | PHI ✓ | PHI |
+| NE @ MIA | 33-27 | MIA ✗ | 8 | MIA ✗ | 2 | MIA ✗ | NE |
+| SF @ NO | 26-21 | SF ✓ | 6 | SF ✓ | 5 | SF ✓ | SF |
+| BUF @ NYJ | 30-10 | BUF ✓ | 12 | BUF ✓ | 14 | BUF ✓ | BUF |
+| SEA @ PIT | 31-17 | PIT ✗ | 3 | PIT ✗ | 8 | PIT ✗ | SEA |
+| LAR @ TEN | 33-19 | LAR ✓ | 13 | LAR ✓ | 12 | LAR ✓ | LAR |
+| CAR @ ARI | 22-27 | ARI ✓ | 11 | ARI ✓ | 15 | ARI ✓ | ARI |
+| DEN @ IND | 28-29 | DEN ✗ | 2 | DEN ✗ | 3 | DEN ✗ | IND |
+| PHI @ KC | 20-17 | PHI ✓ | 4 | PHI ✓ | 1 | PHI ✓ | PHI |
 | ATL @ MIN | 22-6 | MIN ✗ | 14 | MIN ✗ | 6 | MIN ✗ | ATL |
-| TB @ HOU | 20-19 | HOU ✗ | 3 | HOU ✗ | 4 | HOU ✗ | TB |
-| LAC @ OAK | 20-9 | LAC ✓ | 5 | LAC ✓ | 10 | LAC ✓ | LAC |
+| TB @ HOU | 20-19 | TB ✓ | 1 | HOU ✗ | 4 | HOU ✗ | TB |
+| LAC @ OAK | 20-9 | LAC ✓ | 7 | LAC ✓ | 10 | LAC ✓ | LAC |
 
 ### Week 3
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
 | MIA @ BUF | 21-31 | BUF ✓ | 16 | BUF ✓ | 16 | BUF ✓ | BUF |
-| ATL @ CAR | 0-30 | ATL ✗ | 5 | ATL ✗ | 9 | ATL ✗ | CAR |
-| GB @ CLE | 10-13 | GB ✗ | 11 | GB ✗ | 15 | GB ✗ | CLE |
-| HOU @ JAX | 10-17 | HOU ✗ | 2 | JAX ✓ | 4 | JAX ✓ | JAX |
-| CIN @ MIN | 10-48 | MIN ✓ | 4 | MIN ✓ | 7 | MIN ✓ | MIN |
-| PIT @ NE | 21-14 | PIT ✓ | 3 | PIT ✓ | 1 | PIT ✓ | PIT |
-| LAR @ PHI | 26-33 | PHI ✓ | 12 | PHI ✓ | 8 | PHI ✓ | PHI |
-| NYJ @ TB | 27-29 | TB ✓ | 13 | TB ✓ | 13 | TB ✓ | TB |
-| IND @ TEN | 41-20 | IND ✓ | 6 | IND ✓ | 10 | IND ✓ | IND |
-| OAK @ WSH | 24-41 | WSH ✓ | 14 | WSH ✓ | 6 | WSH ✓ | WSH |
-| DEN @ LAC | 20-23 | LAC ✓ | 7 | LAC ✓ | 5 | LAC ✓ | LAC |
-| NO @ SEA | 13-44 | SEA ✓ | 15 | SEA ✓ | 14 | SEA ✓ | SEA |
-| DAL @ CHI | 14-31 | DAL ✗ | 1 | DAL ✗ | 2 | DAL ✗ | CHI |
-| ARI @ SF | 15-16 | SF ✓ | 8 | SF ✓ | 3 | SF ✓ | SF |
-| KC @ NYG | 22-9 | KC ✓ | 10 | KC ✓ | 12 | KC ✓ | KC |
-| DET @ BAL | 38-30 | BAL ✗ | 9 | BAL ✗ | 11 | BAL ✗ | DET |
+| ATL @ CAR | 0-30 | ATL ✗ | 8 | ATL ✗ | 9 | ATL ✗ | CAR |
+| GB @ CLE | 10-13 | GB ✗ | 15 | GB ✗ | 15 | GB ✗ | CLE |
+| HOU @ JAX | 10-17 | HOU ✗ | 4 | JAX ✓ | 4 | HOU ✗ | JAX |
+| CIN @ MIN | 10-48 | CIN ✗ | 1 | MIN ✓ | 7 | MIN ✓ | MIN |
+| PIT @ NE | 21-14 | PIT ✓ | 6 | PIT ✓ | 1 | PIT ✓ | PIT |
+| LAR @ PHI | 26-33 | PHI ✓ | 10 | PHI ✓ | 8 | PHI ✓ | PHI |
+| NYJ @ TB | 27-29 | TB ✓ | 11 | TB ✓ | 13 | TB ✓ | TB |
+| IND @ TEN | 41-20 | IND ✓ | 9 | IND ✓ | 10 | IND ✓ | IND |
+| OAK @ WSH | 24-41 | WSH ✓ | 12 | WSH ✓ | 6 | WSH ✓ | WSH |
+| DEN @ LAC | 20-23 | LAC ✓ | 5 | LAC ✓ | 5 | LAC ✓ | LAC |
+| NO @ SEA | 13-44 | SEA ✓ | 13 | SEA ✓ | 14 | SEA ✓ | SEA |
+| DAL @ CHI | 14-31 | DAL ✗ | 2 | DAL ✗ | 2 | DAL ✗ | CHI |
+| ARI @ SF | 15-16 | SF ✓ | 3 | SF ✓ | 3 | SF ✓ | SF |
+| KC @ NYG | 22-9 | KC ✓ | 14 | KC ✓ | 12 | KC ✓ | KC |
+| DET @ BAL | 38-30 | BAL ✗ | 7 | BAL ✗ | 11 | BAL ✗ | DET |
 
 ### Week 4
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
-| SEA @ ARI | 23-20 | SEA ✓ | 1 | SEA ✓ | 1 | SEA ✓ | SEA |
-| MIN @ PIT | 21-24 | MIN ✗ | 3 | MIN ✗ | 6 | MIN ✗ | PIT |
-| WSH @ ATL | 27-34 | WSH ✗ | 6 | ATL ✓ | 3 | WSH ✗ | ATL |
+| SEA @ ARI | 23-20 | SEA ✓ | 4 | SEA ✓ | 1 | SEA ✓ | SEA |
+| MIN @ PIT | 21-24 | MIN ✗ | 6 | MIN ✗ | 6 | MIN ✗ | PIT |
+| WSH @ ATL | 27-34 | WSH ✗ | 10 | ATL ✓ | 3 | WSH ✗ | ATL |
 | NO @ BUF | 19-31 | BUF ✓ | 16 | BUF ✓ | 16 | BUF ✓ | BUF |
 | CLE @ DET | 10-34 | DET ✓ | 15 | DET ✓ | 15 | DET ✓ | DET |
-| TEN @ HOU | 0-26 | HOU ✓ | 14 | HOU ✓ | 13 | HOU ✓ | HOU |
-| CAR @ NE | 13-42 | NE ✓ | 5 | NE ✓ | 10 | NE ✓ | NE |
-| LAC @ NYG | 18-21 | LAC ✗ | 13 | LAC ✗ | 11 | LAC ✗ | NYG |
-| PHI @ TB | 31-25 | PHI ✓ | 7 | PHI ✓ | 9 | PHI ✓ | PHI |
-| IND @ LAR | 20-27 | LAR ✓ | 11 | LAR ✓ | 8 | LAR ✓ | LAR |
-| JAX @ SF | 26-21 | SF ✗ | 12 | SF ✗ | 7 | SF ✗ | JAX |
-| BAL @ KC | 20-37 | KC ✓ | 4 | BAL ✗ | 5 | KC ✓ | KC |
-| CHI @ OAK | 25-24 | OAK ✗ | 2 | OAK ✗ | 2 | OAK ✗ | CHI |
-| GB @ DAL | 40-40 | GB  | 10 | GB  | 12 | GB  | tie |
-| NYJ @ MIA | 21-27 | MIA ✓ | 8 | MIA ✓ | 4 | MIA ✓ | MIA |
-| CIN @ DEN | 3-28 | DEN ✓ | 9 | DEN ✓ | 14 | DEN ✓ | DEN |
+| TEN @ HOU | 0-26 | HOU ✓ | 13 | HOU ✓ | 13 | HOU ✓ | HOU |
+| CAR @ NE | 13-42 | NE ✓ | 3 | NE ✓ | 10 | NE ✓ | NE |
+| LAC @ NYG | 18-21 | LAC ✗ | 14 | LAC ✗ | 11 | LAC ✗ | NYG |
+| PHI @ TB | 31-25 | PHI ✓ | 11 | PHI ✓ | 9 | PHI ✓ | PHI |
+| IND @ LAR | 20-27 | LAR ✓ | 8 | LAR ✓ | 8 | LAR ✓ | LAR |
+| JAX @ SF | 26-21 | SF ✗ | 9 | SF ✗ | 7 | SF ✗ | JAX |
+| BAL @ KC | 20-37 | KC ✓ | 2 | BAL ✗ | 5 | BAL ✗ | KC |
+| CHI @ OAK | 25-24 | CHI ✓ | 1 | OAK ✗ | 2 | OAK ✗ | CHI |
+| GB @ DAL | 40-40 | GB  | 12 | GB  | 12 | GB  | tie |
+| NYJ @ MIA | 21-27 | MIA ✓ | 5 | MIA ✓ | 4 | MIA ✓ | MIA |
+| CIN @ DEN | 3-28 | DEN ✓ | 7 | DEN ✓ | 14 | DEN ✓ | DEN |
 
 ### Week 5
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
-| SF @ LAR | 26-23 | LAR ✗ | 9 | LAR ✗ | 13 | LAR ✗ | SF |
-| MIN @ CLE | 21-17 | MIN ✓ | 8 | MIN ✓ | 8 | MIN ✓ | MIN |
-| HOU @ BAL | 44-10 | BAL ✗ | 10 | HOU ✓ | 4 | BAL ✗ | HOU |
-| MIA @ CAR | 24-27 | MIA ✗ | 1 | MIA ✗ | 3 | MIA ✗ | CAR |
-| OAK @ IND | 6-40 | IND ✓ | 11 | IND ✓ | 10 | IND ✓ | IND |
-| NYG @ NO | 14-26 | NO ✓ | 3 | NO ✓ | 2 | NO ✓ | NO |
-| DAL @ NYJ | 37-22 | NYJ ✗ | 2 | NYJ ✗ | 1 | NYJ ✗ | DAL |
+| SF @ LAR | 26-23 | LAR ✗ | 7 | LAR ✗ | 13 | LAR ✗ | SF |
+| MIN @ CLE | 21-17 | MIN ✓ | 11 | MIN ✓ | 8 | MIN ✓ | MIN |
+| HOU @ BAL | 44-10 | BAL ✗ | 8 | HOU ✓ | 4 | BAL ✗ | HOU |
+| MIA @ CAR | 24-27 | MIA ✗ | 3 | MIA ✗ | 3 | MIA ✗ | CAR |
+| OAK @ IND | 6-40 | IND ✓ | 10 | IND ✓ | 10 | IND ✓ | IND |
+| NYG @ NO | 14-26 | NO ✓ | 2 | NO ✓ | 2 | NO ✓ | NO |
+| DAL @ NYJ | 37-22 | DAL ✓ | 1 | NYJ ✗ | 1 | DAL ✓ | DAL |
 | DEN @ PHI | 21-17 | PHI ✗ | 12 | PHI ✗ | 9 | PHI ✗ | DEN |
 | TEN @ ARI | 22-21 | ARI ✗ | 13 | ARI ✗ | 12 | ARI ✗ | TEN |
-| TB @ SEA | 38-35 | SEA ✗ | 6 | SEA ✗ | 6 | SEA ✗ | TB |
-| DET @ CIN | 37-24 | DET ✓ | 4 | DET ✓ | 14 | DET ✓ | DET |
-| WSH @ LAC | 27-10 | LAC ✗ | 5 | LAC ✗ | 5 | LAC ✗ | WSH |
+| TB @ SEA | 38-35 | SEA ✗ | 5 | SEA ✗ | 6 | SEA ✗ | TB |
+| DET @ CIN | 37-24 | DET ✓ | 9 | DET ✓ | 14 | DET ✓ | DET |
+| WSH @ LAC | 27-10 | LAC ✗ | 4 | LAC ✗ | 5 | LAC ✗ | WSH |
 | NE @ BUF | 23-20 | BUF ✗ | 14 | BUF ✗ | 11 | BUF ✗ | NE |
-| KC @ JAX | 28-31 | KC ✗ | 7 | KC ✗ | 7 | KC ✗ | JAX |
+| KC @ JAX | 28-31 | KC ✗ | 6 | KC ✗ | 7 | KC ✗ | JAX |
 
 ### Week 6
 
@@ -242,174 +239,174 @@ The pick and confidence rank each forecaster would have entered, before the game
 |---|---|---|---|---|---|---|---|
 | PHI @ NYG | 17-34 | PHI ✗ | 15 | PHI ✗ | 12 | PHI ✗ | NYG |
 | DEN @ NYJ | 13-11 | DEN ✓ | 14 | DEN ✓ | 13 | DEN ✓ | DEN |
-| LAR @ BAL | 17-3 | BAL ✗ | 6 | LAR ✓ | 11 | LAR ✓ | LAR |
-| DAL @ CAR | 27-30 | DAL ✗ | 4 | DAL ✗ | 3 | DAL ✗ | CAR |
-| ARI @ IND | 27-31 | IND ✓ | 10 | IND ✓ | 14 | IND ✓ | IND |
-| SEA @ JAX | 20-12 | JAX ✗ | 3 | SEA ✓ | 1 | SEA ✓ | SEA |
-| LAC @ MIA | 29-27 | LAC ✓ | 5 | LAC ✓ | 8 | LAC ✓ | LAC |
-| NE @ NO | 25-19 | NO ✗ | 2 | NE ✓ | 6 | NE ✓ | NE |
+| LAR @ BAL | 17-3 | BAL ✗ | 1 | LAR ✓ | 11 | LAR ✓ | LAR |
+| DAL @ CAR | 27-30 | DAL ✗ | 5 | DAL ✗ | 3 | DAL ✗ | CAR |
+| ARI @ IND | 27-31 | IND ✓ | 8 | IND ✓ | 14 | IND ✓ | IND |
+| SEA @ JAX | 20-12 | SEA ✓ | 2 | SEA ✓ | 1 | SEA ✓ | SEA |
+| LAC @ MIA | 29-27 | LAC ✓ | 6 | LAC ✓ | 8 | LAC ✓ | LAC |
+| NE @ NO | 25-19 | NE ✓ | 3 | NE ✓ | 6 | NE ✓ | NE |
 | CLE @ PIT | 9-23 | PIT ✓ | 13 | PIT ✓ | 10 | PIT ✓ | PIT |
-| TEN @ OAK | 10-20 | OAK ✓ | 8 | OAK ✓ | 4 | OAK ✓ | OAK |
-| CIN @ GB | 18-27 | GB ✓ | 11 | GB ✓ | 15 | GB ✓ | GB |
-| SF @ TB | 19-30 | TB ✓ | 7 | TB ✓ | 5 | TB ✓ | TB |
-| DET @ KC | 17-30 | KC ✓ | 1 | KC ✓ | 2 | KC ✓ | KC |
-| BUF @ ATL | 14-24 | BUF ✗ | 9 | BUF ✗ | 7 | BUF ✗ | ATL |
+| TEN @ OAK | 10-20 | OAK ✓ | 7 | OAK ✓ | 4 | OAK ✓ | OAK |
+| CIN @ GB | 18-27 | GB ✓ | 10 | GB ✓ | 15 | GB ✓ | GB |
+| SF @ TB | 19-30 | TB ✓ | 9 | TB ✓ | 5 | TB ✓ | TB |
+| DET @ KC | 17-30 | DET ✗ | 4 | KC ✓ | 2 | KC ✓ | KC |
+| BUF @ ATL | 14-24 | BUF ✗ | 11 | BUF ✗ | 7 | BUF ✗ | ATL |
 | CHI @ WSH | 25-24 | WSH ✗ | 12 | WSH ✗ | 9 | WSH ✗ | CHI |
 
 ### Week 7
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
-| PIT @ CIN | 31-33 | PIT ✗ | 1 | PIT ✗ | 10 | PIT ✗ | CIN |
+| PIT @ CIN | 31-33 | PIT ✗ | 5 | PIT ✗ | 10 | PIT ✗ | CIN |
 | LAR @ JAX | 35-7 | LAR ✓ | 11 | LAR ✓ | 8 | LAR ✓ | LAR |
-| NO @ CHI | 14-26 | CHI ✓ | 13 | CHI ✓ | 9 | CHI ✓ | CHI |
-| MIA @ CLE | 6-31 | CLE ✓ | 2 | CLE ✓ | 6 | CLE ✓ | CLE |
+| NO @ CHI | 14-26 | CHI ✓ | 10 | CHI ✓ | 9 | CHI ✓ | CHI |
+| MIA @ CLE | 6-31 | MIA ✗ | 2 | CLE ✓ | 6 | CLE ✓ | CLE |
 | OAK @ KC | 0-31 | KC ✓ | 15 | KC ✓ | 15 | KC ✓ | KC |
-| PHI @ MIN | 28-22 | PHI ✓ | 3 | PHI ✓ | 5 | PHI ✓ | PHI |
-| CAR @ NYJ | 13-6 | NYJ ✗ | 4 | NYJ ✗ | 1 | NYJ ✗ | CAR |
-| NE @ TEN | 31-13 | NE ✓ | 10 | NE ✓ | 12 | NE ✓ | NE |
+| PHI @ MIN | 28-22 | PHI ✓ | 6 | PHI ✓ | 5 | PHI ✓ | PHI |
+| CAR @ NYJ | 13-6 | NYJ ✗ | 1 | NYJ ✗ | 1 | NYJ ✗ | CAR |
+| NE @ TEN | 31-13 | NE ✓ | 13 | NE ✓ | 12 | NE ✓ | NE |
 | NYG @ DEN | 32-33 | DEN ✓ | 14 | DEN ✓ | 14 | DEN ✓ | DEN |
-| IND @ LAC | 38-24 | LAC ✗ | 7 | LAC ✗ | 4 | LAC ✗ | IND |
-| GB @ ARI | 27-23 | GB ✓ | 8 | GB ✓ | 13 | GB ✓ | GB |
-| WSH @ DAL | 22-44 | WSH ✗ | 5 | DAL ✓ | 3 | WSH ✗ | DAL |
-| ATL @ SF | 10-20 | SF ✓ | 6 | SF ✓ | 2 | SF ✓ | SF |
-| TB @ DET | 9-24 | DET ✓ | 12 | DET ✓ | 11 | DET ✓ | DET |
-| HOU @ SEA | 19-27 | SEA ✓ | 9 | SEA ✓ | 7 | SEA ✓ | SEA |
+| IND @ LAC | 38-24 | LAC ✗ | 4 | LAC ✗ | 4 | LAC ✗ | IND |
+| GB @ ARI | 27-23 | GB ✓ | 12 | GB ✓ | 13 | GB ✓ | GB |
+| WSH @ DAL | 22-44 | WSH ✗ | 8 | DAL ✓ | 3 | WSH ✗ | DAL |
+| ATL @ SF | 10-20 | SF ✓ | 3 | SF ✓ | 2 | SF ✓ | SF |
+| TB @ DET | 9-24 | DET ✓ | 9 | DET ✓ | 11 | DET ✓ | DET |
+| HOU @ SEA | 19-27 | SEA ✓ | 7 | SEA ✓ | 7 | SEA ✓ | SEA |
 
 ### Week 8
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
-| MIN @ LAC | 10-37 | LAC ✓ | 2 | LAC ✓ | 4 | LAC ✓ | LAC |
-| MIA @ ATL | 34-10 | ATL ✗ | 8 | ATL ✗ | 8 | ATL ✗ | MIA |
+| MIN @ LAC | 10-37 | MIN ✗ | 1 | LAC ✓ | 4 | LAC ✓ | LAC |
+| MIA @ ATL | 34-10 | ATL ✗ | 6 | ATL ✗ | 8 | ATL ✗ | MIA |
 | CHI @ BAL | 16-30 | BAL ✓ | 4 | BAL ✓ | 1 | BAL ✓ | BAL |
-| BUF @ CAR | 40-9 | BUF ✓ | 5 | BUF ✓ | 11 | BUF ✓ | BUF |
-| NYJ @ CIN | 39-38 | CIN ✗ | 11 | CIN ✗ | 7 | CIN ✗ | NYJ |
-| SF @ HOU | 15-26 | HOU ✓ | 3 | HOU ✓ | 3 | HOU ✓ | HOU |
-| CLE @ NE | 13-32 | NE ✓ | 6 | NE ✓ | 10 | NE ✓ | NE |
+| BUF @ CAR | 40-9 | BUF ✓ | 8 | BUF ✓ | 11 | BUF ✓ | BUF |
+| NYJ @ CIN | 39-38 | CIN ✗ | 10 | CIN ✗ | 7 | CIN ✗ | NYJ |
+| SF @ HOU | 15-26 | HOU ✓ | 2 | HOU ✓ | 3 | HOU ✓ | HOU |
+| CLE @ NE | 13-32 | NE ✓ | 5 | NE ✓ | 10 | NE ✓ | NE |
 | NYG @ PHI | 20-38 | PHI ✓ | 12 | PHI ✓ | 9 | PHI ✓ | PHI |
-| TB @ NO | 23-3 | TB ✓ | 7 | TB ✓ | 6 | TB ✓ | TB |
-| DAL @ DEN | 24-44 | DEN ✓ | 9 | DEN ✓ | 5 | DEN ✓ | DEN |
+| TB @ NO | 23-3 | TB ✓ | 11 | TB ✓ | 6 | TB ✓ | TB |
+| DAL @ DEN | 24-44 | DEN ✓ | 7 | DEN ✓ | 5 | DEN ✓ | DEN |
 | TEN @ IND | 14-38 | IND ✓ | 13 | IND ✓ | 13 | IND ✓ | IND |
-| GB @ PIT | 35-25 | GB ✓ | 1 | GB ✓ | 2 | GB ✓ | GB |
-| WSH @ KC | 7-28 | KC ✓ | 10 | KC ✓ | 12 | KC ✓ | KC |
+| GB @ PIT | 35-25 | GB ✓ | 3 | GB ✓ | 2 | GB ✓ | GB |
+| WSH @ KC | 7-28 | KC ✓ | 9 | KC ✓ | 12 | KC ✓ | KC |
 
 ### Week 9
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
-| BAL @ MIA | 28-6 | BAL ✓ | 5 | BAL ✓ | 10 | BAL ✓ | BAL |
-| CHI @ CIN | 47-42 | CIN ✗ | 8 | CHI ✓ | 6 | CIN ✗ | CHI |
-| MIN @ DET | 27-24 | DET ✗ | 12 | DET ✗ | 11 | DET ✗ | MIN |
+| BAL @ MIA | 28-6 | BAL ✓ | 9 | BAL ✓ | 10 | BAL ✓ | BAL |
+| CHI @ CIN | 47-42 | CIN ✗ | 5 | CHI ✓ | 6 | CHI ✓ | CHI |
+| MIN @ DET | 27-24 | DET ✗ | 11 | DET ✗ | 11 | DET ✗ | MIN |
 | CAR @ GB | 16-13 | GB ✗ | 13 | GB ✗ | 13 | GB ✗ | CAR |
-| DEN @ HOU | 18-15 | HOU ✗ | 2 | HOU ✗ | 1 | HOU ✗ | DEN |
+| DEN @ HOU | 18-15 | DEN ✓ | 3 | HOU ✗ | 1 | DEN ✓ | DEN |
 | ATL @ NE | 23-24 | NE ✓ | 10 | NE ✓ | 9 | NE ✓ | NE |
-| SF @ NYG | 34-24 | SF ✓ | 7 | SF ✓ | 5 | SF ✓ | SF |
-| IND @ PIT | 20-27 | PIT ✓ | 3 | IND ✗ | 8 | IND ✗ | PIT |
-| LAC @ TEN | 27-20 | LAC ✓ | 11 | LAC ✓ | 12 | LAC ✓ | LAC |
+| SF @ NYG | 34-24 | SF ✓ | 8 | SF ✓ | 5 | SF ✓ | SF |
+| IND @ PIT | 20-27 | IND ✗ | 2 | IND ✗ | 8 | IND ✗ | PIT |
+| LAC @ TEN | 27-20 | LAC ✓ | 12 | LAC ✓ | 12 | LAC ✓ | LAC |
 | NO @ LAR | 10-34 | LAR ✓ | 14 | LAR ✓ | 14 | LAR ✓ | LAR |
-| JAX @ OAK | 30-29 | JAX ✓ | 1 | JAX ✓ | 2 | JAX ✓ | JAX |
-| KC @ BUF | 21-28 | BUF ✓ | 6 | KC ✗ | 3 | BUF ✓ | BUF |
-| SEA @ WSH | 38-14 | SEA ✓ | 4 | SEA ✓ | 4 | SEA ✓ | SEA |
-| ARI @ DAL | 27-17 | DAL ✗ | 9 | DAL ✗ | 7 | DAL ✗ | ARI |
+| JAX @ OAK | 30-29 | JAX ✓ | 4 | JAX ✓ | 2 | JAX ✓ | JAX |
+| KC @ BUF | 21-28 | KC ✗ | 1 | KC ✗ | 3 | KC ✗ | BUF |
+| SEA @ WSH | 38-14 | SEA ✓ | 6 | SEA ✓ | 4 | SEA ✓ | SEA |
+| ARI @ DAL | 27-17 | DAL ✗ | 7 | DAL ✗ | 7 | DAL ✗ | ARI |
 
 ### Week 10
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
 | OAK @ DEN | 7-10 | DEN ✓ | 14 | DEN ✓ | 14 | DEN ✓ | DEN |
-| ATL @ IND | 25-31 | IND ✓ | 7 | IND ✓ | 10 | IND ✓ | IND |
+| ATL @ IND | 25-31 | IND ✓ | 9 | IND ✓ | 10 | IND ✓ | IND |
 | NO @ CAR | 17-7 | CAR ✗ | 11 | CAR ✗ | 8 | CAR ✗ | NO |
-| NYG @ CHI | 20-24 | CHI ✓ | 10 | CHI ✓ | 6 | CHI ✓ | CHI |
-| JAX @ HOU | 29-36 | HOU ✓ | 9 | JAX ✗ | 2 | HOU ✓ | HOU |
-| BUF @ MIA | 13-30 | BUF ✗ | 12 | BUF ✗ | 13 | BUF ✗ | MIA |
-| BAL @ MIN | 27-19 | MIN ✗ | 4 | BAL ✓ | 7 | BAL ✓ | BAL |
-| CLE @ NYJ | 20-27 | NYJ ✓ | 2 | CLE ✗ | 3 | NYJ ✓ | NYJ |
-| NE @ TB | 28-23 | TB ✗ | 8 | TB ✗ | 4 | TB ✗ | NE |
-| ARI @ SEA | 22-44 | SEA ✓ | 13 | SEA ✓ | 11 | SEA ✓ | SEA |
-| LAR @ SF | 42-26 | LAR ✓ | 3 | LAR ✓ | 9 | LAR ✓ | LAR |
-| DET @ WSH | 44-22 | DET ✓ | 6 | DET ✓ | 12 | DET ✓ | DET |
-| PIT @ LAC | 10-25 | LAC ✓ | 5 | LAC ✓ | 5 | LAC ✓ | LAC |
-| PHI @ GB | 10-7 | GB ✗ | 1 | GB ✗ | 1 | GB ✗ | PHI |
+| NYG @ CHI | 20-24 | CHI ✓ | 8 | CHI ✓ | 6 | CHI ✓ | CHI |
+| JAX @ HOU | 29-36 | HOU ✓ | 7 | JAX ✗ | 2 | HOU ✓ | HOU |
+| BUF @ MIA | 13-30 | BUF ✗ | 13 | BUF ✗ | 13 | BUF ✗ | MIA |
+| BAL @ MIN | 27-19 | MIN ✗ | 1 | BAL ✓ | 7 | BAL ✓ | BAL |
+| CLE @ NYJ | 20-27 | NYJ ✓ | 2 | CLE ✗ | 3 | CLE ✗ | NYJ |
+| NE @ TB | 28-23 | TB ✗ | 6 | TB ✗ | 4 | TB ✗ | NE |
+| ARI @ SEA | 22-44 | SEA ✓ | 12 | SEA ✓ | 11 | SEA ✓ | SEA |
+| LAR @ SF | 42-26 | LAR ✓ | 5 | LAR ✓ | 9 | LAR ✓ | LAR |
+| DET @ WSH | 44-22 | DET ✓ | 10 | DET ✓ | 12 | DET ✓ | DET |
+| PIT @ LAC | 10-25 | LAC ✓ | 4 | LAC ✓ | 5 | LAC ✓ | LAC |
+| PHI @ GB | 10-7 | PHI ✓ | 3 | GB ✗ | 1 | PHI ✓ | PHI |
 
 ### Week 11
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
-| NYJ @ NE | 14-27 | NE ✓ | 15 | NE ✓ | 15 | NE ✓ | NE |
-| WSH @ MIA | 13-16 | WSH ✗ | 1 | MIA ✓ | 2 | MIA ✓ | MIA |
-| CAR @ ATL | 30-27 | ATL ✗ | 8 | ATL ✗ | 9 | ATL ✗ | CAR |
-| TB @ BUF | 32-44 | BUF ✓ | 10 | BUF ✓ | 12 | BUF ✓ | BUF |
-| LAC @ JAX | 6-35 | LAC ✗ | 4 | LAC ✗ | 4 | LAC ✗ | JAX |
-| CHI @ MIN | 19-17 | MIN ✗ | 9 | MIN ✗ | 1 | MIN ✗ | CHI |
-| GB @ NYG | 27-20 | GB ✓ | 13 | GB ✓ | 14 | GB ✓ | GB |
+| NYJ @ NE | 14-27 | NE ✓ | 13 | NE ✓ | 15 | NE ✓ | NE |
+| WSH @ MIA | 13-16 | WSH ✗ | 2 | MIA ✓ | 2 | MIA ✓ | MIA |
+| CAR @ ATL | 30-27 | ATL ✗ | 6 | ATL ✗ | 9 | ATL ✗ | CAR |
+| TB @ BUF | 32-44 | BUF ✓ | 9 | BUF ✓ | 12 | BUF ✓ | BUF |
+| LAC @ JAX | 6-35 | LAC ✗ | 10 | LAC ✗ | 4 | LAC ✗ | JAX |
+| CHI @ MIN | 19-17 | MIN ✗ | 8 | MIN ✗ | 1 | MIN ✗ | CHI |
+| GB @ NYG | 27-20 | GB ✓ | 14 | GB ✓ | 14 | GB ✓ | GB |
 | CIN @ PIT | 12-34 | PIT ✓ | 11 | PIT ✓ | 10 | PIT ✓ | PIT |
-| HOU @ TEN | 16-13 | HOU ✓ | 14 | HOU ✓ | 11 | HOU ✓ | HOU |
-| SF @ ARI | 41-22 | ARI ✗ | 3 | SF ✓ | 6 | SF ✓ | SF |
-| SEA @ LAR | 19-21 | LAR ✓ | 6 | LAR ✓ | 5 | LAR ✓ | LAR |
+| HOU @ TEN | 16-13 | HOU ✓ | 15 | HOU ✓ | 11 | HOU ✓ | HOU |
+| SF @ ARI | 41-22 | SF ✓ | 1 | SF ✓ | 6 | SF ✓ | SF |
+| SEA @ LAR | 19-21 | LAR ✓ | 4 | LAR ✓ | 5 | LAR ✓ | LAR |
 | BAL @ CLE | 23-16 | BAL ✓ | 12 | BAL ✓ | 13 | BAL ✓ | BAL |
-| KC @ DEN | 19-22 | DEN ✓ | 5 | KC ✗ | 8 | KC ✗ | DEN |
+| KC @ DEN | 19-22 | DEN ✓ | 3 | KC ✗ | 8 | KC ✗ | DEN |
 | DET @ PHI | 9-16 | PHI ✓ | 7 | PHI ✓ | 3 | PHI ✓ | PHI |
-| DAL @ OAK | 33-16 | DAL ✓ | 2 | DAL ✓ | 7 | DAL ✓ | DAL |
+| DAL @ OAK | 33-16 | DAL ✓ | 5 | DAL ✓ | 7 | DAL ✓ | DAL |
 
 ### Week 12
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
-| BUF @ HOU | 19-23 | HOU ✓ | 1 | BUF ✗ | 7 | BUF ✗ | HOU |
+| BUF @ HOU | 19-23 | BUF ✗ | 4 | BUF ✗ | 7 | BUF ✗ | HOU |
 | NYJ @ BAL | 10-23 | BAL ✓ | 12 | BAL ✓ | 13 | BAL ✓ | BAL |
-| PIT @ CHI | 28-31 | CHI ✓ | 3 | CHI ✓ | 3 | CHI ✓ | CHI |
+| PIT @ CHI | 28-31 | PIT ✗ | 2 | CHI ✓ | 3 | CHI ✓ | CHI |
 | NE @ CIN | 26-20 | NE ✓ | 6 | NE ✓ | 11 | NE ✓ | NE |
-| NYG @ DET | 27-34 | DET ✓ | 14 | DET ✓ | 14 | DET ✓ | DET |
-| MIN @ GB | 6-23 | GB ✓ | 10 | GB ✓ | 8 | GB ✓ | GB |
+| NYG @ DET | 27-34 | DET ✓ | 13 | DET ✓ | 14 | DET ✓ | DET |
+| MIN @ GB | 6-23 | GB ✓ | 9 | GB ✓ | 8 | GB ✓ | GB |
 | IND @ KC | 20-23 | KC ✓ | 7 | KC ✓ | 6 | KC ✓ | KC |
-| SEA @ TEN | 30-24 | SEA ✓ | 13 | SEA ✓ | 12 | SEA ✓ | SEA |
-| JAX @ ARI | 27-24 | ARI ✗ | 2 | JAX ✓ | 2 | JAX ✓ | JAX |
-| CLE @ OAK | 24-10 | OAK ✗ | 5 | OAK ✗ | 5 | OAK ✗ | CLE |
-| PHI @ DAL | 21-24 | PHI ✗ | 8 | PHI ✗ | 4 | PHI ✗ | DAL |
-| ATL @ NO | 24-10 | NO ✗ | 4 | NO ✗ | 1 | NO ✗ | ATL |
-| TB @ LAR | 7-34 | LAR ✓ | 9 | LAR ✓ | 9 | LAR ✓ | LAR |
-| CAR @ SF | 9-20 | SF ✓ | 11 | SF ✓ | 10 | SF ✓ | SF |
+| SEA @ TEN | 30-24 | SEA ✓ | 14 | SEA ✓ | 12 | SEA ✓ | SEA |
+| JAX @ ARI | 27-24 | JAX ✓ | 5 | JAX ✓ | 2 | JAX ✓ | JAX |
+| CLE @ OAK | 24-10 | OAK ✗ | 3 | OAK ✗ | 5 | OAK ✗ | CLE |
+| PHI @ DAL | 21-24 | PHI ✗ | 11 | PHI ✗ | 4 | PHI ✗ | DAL |
+| ATL @ NO | 24-10 | NO ✗ | 1 | NO ✗ | 1 | NO ✗ | ATL |
+| TB @ LAR | 7-34 | LAR ✓ | 10 | LAR ✓ | 9 | LAR ✓ | LAR |
+| CAR @ SF | 9-20 | SF ✓ | 8 | SF ✓ | 10 | SF ✓ | SF |
 
 ### Week 13
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
-| GB @ DET | 31-24 | DET ✗ | 6 | DET ✗ | 1 | DET ✗ | GB |
-| KC @ DAL | 28-31 | KC ✗ | 4 | KC ✗ | 5 | KC ✗ | DAL |
-| CIN @ BAL | 32-14 | BAL ✗ | 14 | BAL ✗ | 12 | BAL ✗ | CIN |
-| CHI @ PHI | 24-15 | PHI ✗ | 13 | PHI ✗ | 11 | PHI ✗ | CHI |
-| LAR @ CAR | 28-31 | LAR ✗ | 11 | LAR ✗ | 14 | LAR ✗ | CAR |
-| SF @ CLE | 26-8 | SF ✓ | 5 | SF ✓ | 7 | SF ✓ | SF |
-| HOU @ IND | 20-16 | IND ✗ | 3 | IND ✗ | 4 | IND ✗ | HOU |
-| NO @ MIA | 17-21 | MIA ✓ | 10 | MIA ✓ | 8 | MIA ✓ | MIA |
-| ATL @ NYJ | 24-27 | ATL ✗ | 1 | ATL ✗ | 3 | ATL ✗ | NYJ |
-| ARI @ TB | 17-20 | TB ✓ | 9 | TB ✓ | 6 | TB ✓ | TB |
-| JAX @ TEN | 25-3 | JAX ✓ | 8 | JAX ✓ | 9 | JAX ✓ | JAX |
-| MIN @ SEA | 0-26 | SEA ✓ | 12 | SEA ✓ | 16 | SEA ✓ | SEA |
-| OAK @ LAC | 14-31 | LAC ✓ | 16 | LAC ✓ | 15 | LAC ✓ | LAC |
-| BUF @ PIT | 26-7 | BUF ✓ | 2 | BUF ✓ | 2 | BUF ✓ | BUF |
-| DEN @ WSH | 27-26 | DEN ✓ | 7 | DEN ✓ | 10 | DEN ✓ | DEN |
-| NYG @ NE | 15-33 | NE ✓ | 15 | NE ✓ | 13 | NE ✓ | NE |
+| GB @ DET | 31-24 | DET ✗ | 4 | DET ✗ | 1 | DET ✗ | GB |
+| KC @ DAL | 28-31 | KC ✗ | 5 | KC ✗ | 5 | KC ✗ | DAL |
+| CIN @ BAL | 32-14 | BAL ✗ | 13 | BAL ✗ | 12 | BAL ✗ | CIN |
+| CHI @ PHI | 24-15 | PHI ✗ | 11 | PHI ✗ | 11 | PHI ✗ | CHI |
+| LAR @ CAR | 28-31 | LAR ✗ | 16 | LAR ✗ | 14 | LAR ✗ | CAR |
+| SF @ CLE | 26-8 | SF ✓ | 6 | SF ✓ | 7 | SF ✓ | SF |
+| HOU @ IND | 20-16 | IND ✗ | 1 | IND ✗ | 4 | IND ✗ | HOU |
+| NO @ MIA | 17-21 | MIA ✓ | 8 | MIA ✓ | 8 | MIA ✓ | MIA |
+| ATL @ NYJ | 24-27 | ATL ✗ | 2 | ATL ✗ | 3 | ATL ✗ | NYJ |
+| ARI @ TB | 17-20 | TB ✓ | 7 | TB ✓ | 6 | TB ✓ | TB |
+| JAX @ TEN | 25-3 | JAX ✓ | 12 | JAX ✓ | 9 | JAX ✓ | JAX |
+| MIN @ SEA | 0-26 | SEA ✓ | 10 | SEA ✓ | 16 | SEA ✓ | SEA |
+| OAK @ LAC | 14-31 | LAC ✓ | 15 | LAC ✓ | 15 | LAC ✓ | LAC |
+| BUF @ PIT | 26-7 | BUF ✓ | 3 | BUF ✓ | 2 | BUF ✓ | BUF |
+| DEN @ WSH | 27-26 | DEN ✓ | 9 | DEN ✓ | 10 | DEN ✓ | DEN |
+| NYG @ NE | 15-33 | NE ✓ | 14 | NE ✓ | 13 | NE ✓ | NE |
 
 ### Week 14
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
-| DAL @ DET | 30-44 | DET ✓ | 9 | DET ✓ | 5 | DET ✓ | DET |
-| SEA @ ATL | 37-9 | SEA ✓ | 8 | SEA ✓ | 11 | SEA ✓ | SEA |
+| DAL @ DET | 30-44 | DET ✓ | 8 | DET ✓ | 5 | DET ✓ | DET |
+| SEA @ ATL | 37-9 | SEA ✓ | 12 | SEA ✓ | 11 | SEA ✓ | SEA |
 | PIT @ BAL | 27-22 | BAL ✗ | 6 | BAL ✗ | 8 | BAL ✗ | PIT |
-| CIN @ BUF | 34-39 | BUF ✓ | 12 | BUF ✓ | 9 | BUF ✓ | BUF |
-| TEN @ CLE | 31-29 | CLE ✗ | 11 | CLE ✗ | 6 | CLE ✗ | TEN |
-| IND @ JAX | 19-36 | JAX ✓ | 3 | IND ✗ | 3 | JAX ✓ | JAX |
-| WSH @ MIN | 0-31 | MIN ✓ | 4 | WSH ✗ | 1 | MIN ✓ | MIN |
-| MIA @ NYJ | 34-10 | MIA ✓ | 2 | MIA ✓ | 4 | MIA ✓ | MIA |
+| CIN @ BUF | 34-39 | BUF ✓ | 10 | BUF ✓ | 9 | BUF ✓ | BUF |
+| TEN @ CLE | 31-29 | CLE ✗ | 9 | CLE ✗ | 6 | CLE ✗ | TEN |
+| IND @ JAX | 19-36 | JAX ✓ | 1 | IND ✗ | 3 | IND ✗ | JAX |
+| WSH @ MIN | 0-31 | MIN ✓ | 2 | WSH ✗ | 1 | MIN ✓ | MIN |
+| MIA @ NYJ | 34-10 | MIA ✓ | 5 | MIA ✓ | 4 | MIA ✓ | MIA |
 | NO @ TB | 24-20 | TB ✗ | 13 | TB ✗ | 12 | TB ✗ | NO |
 | DEN @ OAK | 24-17 | DEN ✓ | 14 | DEN ✓ | 13 | DEN ✓ | DEN |
-| LAR @ ARI | 45-17 | LAR ✓ | 10 | LAR ✓ | 14 | LAR ✓ | LAR |
+| LAR @ ARI | 45-17 | LAR ✓ | 11 | LAR ✓ | 14 | LAR ✓ | LAR |
 | CHI @ GB | 21-28 | GB ✓ | 7 | GB ✓ | 10 | GB ✓ | GB |
-| HOU @ KC | 20-10 | KC ✗ | 5 | KC ✗ | 7 | KC ✗ | HOU |
-| PHI @ LAC | 19-22 | PHI ✗ | 1 | PHI ✗ | 2 | PHI ✗ | LAC |
+| HOU @ KC | 20-10 | KC ✗ | 3 | KC ✗ | 7 | KC ✗ | HOU |
+| PHI @ LAC | 19-22 | PHI ✗ | 4 | PHI ✗ | 2 | PHI ✗ | LAC |
 
 ### Week 15
 
@@ -417,103 +414,103 @@ The pick and confidence rank each forecaster would have entered, before the game
 |---|---|---|---|---|---|---|---|
 | ATL @ TB | 29-28 | TB ✗ | 10 | TB ✗ | 10 | TB ✗ | ATL |
 | CLE @ CHI | 3-31 | CHI ✓ | 12 | CHI ✓ | 11 | CHI ✓ | CHI |
-| BAL @ CIN | 24-0 | CIN ✗ | 3 | BAL ✓ | 5 | BAL ✓ | BAL |
+| BAL @ CIN | 24-0 | BAL ✓ | 5 | BAL ✓ | 5 | BAL ✓ | BAL |
 | ARI @ HOU | 20-40 | HOU ✓ | 14 | HOU ✓ | 12 | HOU ✓ | HOU |
 | NYJ @ JAX | 20-48 | JAX ✓ | 13 | JAX ✓ | 16 | JAX ✓ | JAX |
 | LAC @ KC | 16-13 | KC ✗ | 9 | KC ✗ | 8 | KC ✗ | LAC |
 | BUF @ NE | 35-31 | BUF ✓ | 2 | BUF ✓ | 2 | BUF ✓ | BUF |
 | WSH @ NYG | 29-21 | WSH ✓ | 4 | NYG ✗ | 4 | NYG ✗ | WSH |
 | OAK @ PHI | 0-31 | PHI ✓ | 16 | PHI ✓ | 15 | PHI ✓ | PHI |
-| GB @ DEN | 26-34 | DEN ✓ | 5 | GB ✗ | 1 | DEN ✓ | DEN |
+| GB @ DEN | 26-34 | DEN ✓ | 1 | GB ✗ | 1 | DEN ✓ | DEN |
 | DET @ LAR | 34-41 | LAR ✓ | 8 | LAR ✓ | 7 | LAR ✓ | LAR |
-| CAR @ NO | 17-20 | NO ✓ | 1 | CAR ✗ | 3 | CAR ✗ | NO |
+| CAR @ NO | 17-20 | CAR ✗ | 3 | CAR ✗ | 3 | CAR ✗ | NO |
 | IND @ SEA | 16-18 | SEA ✓ | 11 | SEA ✓ | 14 | SEA ✓ | SEA |
 | TEN @ SF | 24-37 | SF ✓ | 15 | SF ✓ | 13 | SF ✓ | SF |
-| MIN @ DAL | 34-26 | DAL ✗ | 7 | DAL ✗ | 9 | DAL ✗ | MIN |
-| MIA @ PIT | 15-28 | PIT ✓ | 6 | PIT ✓ | 6 | PIT ✓ | PIT |
+| MIN @ DAL | 34-26 | DAL ✗ | 6 | DAL ✗ | 9 | DAL ✗ | MIN |
+| MIA @ PIT | 15-28 | PIT ✓ | 7 | PIT ✓ | 6 | PIT ✓ | PIT |
 
 ### Week 16
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
-| LAR @ SEA | 37-38 | SEA ✓ | 6 | SEA ✓ | 2 | SEA ✓ | SEA |
-| PHI @ WSH | 29-18 | PHI ✓ | 9 | PHI ✓ | 13 | PHI ✓ | PHI |
-| GB @ CHI | 16-22 | GB ✗ | 4 | CHI ✓ | 1 | GB ✗ | CHI |
-| TB @ CAR | 20-23 | TB ✗ | 2 | TB ✗ | 6 | TB ✗ | CAR |
-| BUF @ CLE | 23-20 | BUF ✓ | 15 | BUF ✓ | 15 | BUF ✓ | BUF |
-| LAC @ DAL | 34-17 | LAC ✓ | 3 | DAL ✗ | 3 | LAC ✓ | LAC |
-| CIN @ MIA | 45-21 | MIA ✗ | 10 | CIN ✓ | 10 | MIA ✗ | CIN |
+| LAR @ SEA | 37-38 | SEA ✓ | 2 | SEA ✓ | 2 | SEA ✓ | SEA |
+| PHI @ WSH | 29-18 | PHI ✓ | 12 | PHI ✓ | 13 | PHI ✓ | PHI |
+| GB @ CHI | 16-22 | GB ✗ | 6 | CHI ✓ | 1 | GB ✗ | CHI |
+| TB @ CAR | 20-23 | TB ✗ | 5 | TB ✗ | 6 | TB ✗ | CAR |
+| BUF @ CLE | 23-20 | BUF ✓ | 14 | BUF ✓ | 15 | BUF ✓ | BUF |
+| LAC @ DAL | 34-17 | LAC ✓ | 7 | DAL ✗ | 3 | LAC ✓ | LAC |
+| CIN @ MIA | 45-21 | MIA ✗ | 9 | CIN ✓ | 10 | CIN ✓ | CIN |
 | NYJ @ NO | 6-29 | NO ✓ | 8 | NO ✓ | 12 | NO ✓ | NO |
-| MIN @ NYG | 16-13 | MIN ✓ | 11 | MIN ✓ | 5 | MIN ✓ | MIN |
-| KC @ TEN | 9-26 | KC ✗ | 14 | KC ✗ | 9 | KC ✗ | TEN |
-| ATL @ ARI | 26-19 | ARI ✗ | 5 | ATL ✓ | 4 | ATL ✓ | ATL |
-| JAX @ DEN | 34-20 | DEN ✗ | 13 | DEN ✗ | 7 | DEN ✗ | JAX |
-| PIT @ DET | 29-24 | DET ✗ | 12 | DET ✗ | 14 | DET ✗ | PIT |
+| MIN @ NYG | 16-13 | MIN ✓ | 13 | MIN ✓ | 5 | MIN ✓ | MIN |
+| KC @ TEN | 9-26 | KC ✗ | 15 | KC ✗ | 9 | KC ✗ | TEN |
+| ATL @ ARI | 26-19 | ARI ✗ | 1 | ATL ✓ | 4 | ATL ✓ | ATL |
+| JAX @ DEN | 34-20 | DEN ✗ | 11 | DEN ✗ | 7 | DEN ✗ | JAX |
+| PIT @ DET | 29-24 | DET ✗ | 10 | DET ✗ | 14 | DET ✗ | PIT |
 | OAK @ HOU | 21-23 | HOU ✓ | 16 | HOU ✓ | 16 | HOU ✓ | HOU |
-| NE @ BAL | 28-24 | BAL ✗ | 7 | BAL ✗ | 8 | BAL ✗ | NE |
-| SF @ IND | 48-27 | IND ✗ | 1 | SF ✓ | 11 | SF ✓ | SF |
+| NE @ BAL | 28-24 | BAL ✗ | 3 | BAL ✗ | 8 | BAL ✗ | NE |
+| SF @ IND | 48-27 | SF ✓ | 4 | SF ✓ | 11 | SF ✓ | SF |
 
 ### Week 17
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
-| DAL @ WSH | 30-23 | WSH ✗ | 6 | DAL ✓ | 14 | DAL ✓ | DAL |
-| DET @ MIN | 10-23 | DET ✗ | 1 | DET ✗ | 12 | DET ✗ | MIN |
-| DEN @ KC | 20-13 | DEN ✓ | 7 | DEN ✓ | 16 | DEN ✓ | DEN |
-| HOU @ LAC | 20-16 | LAC ✗ | 3 | LAC ✗ | 1 | LAC ✗ | HOU |
+| DAL @ WSH | 30-23 | WSH ✗ | 1 | DAL ✓ | 14 | DAL ✓ | DAL |
+| DET @ MIN | 10-23 | DET ✗ | 5 | DET ✗ | 12 | DET ✗ | MIN |
+| DEN @ KC | 20-13 | DEN ✓ | 9 | DEN ✓ | 16 | DEN ✓ | DEN |
+| HOU @ LAC | 20-16 | HOU ✓ | 4 | LAC ✗ | 1 | LAC ✗ | HOU |
 | BAL @ GB | 41-24 | GB ✗ | 11 | GB ✗ | 3 | GB ✗ | BAL |
 | SEA @ CAR | 27-10 | SEA ✓ | 15 | SEA ✓ | 10 | SEA ✓ | SEA |
-| ARI @ CIN | 14-37 | CIN ✓ | 13 | CIN ✓ | 11 | CIN ✓ | CIN |
-| PIT @ CLE | 6-13 | PIT ✗ | 12 | PIT ✗ | 7 | PIT ✗ | CLE |
-| JAX @ IND | 23-17 | JAX ✓ | 8 | JAX ✓ | 8 | JAX ✓ | JAX |
-| TB @ MIA | 17-20 | MIA ✓ | 4 | TB ✗ | 9 | TB ✗ | MIA |
+| ARI @ CIN | 14-37 | CIN ✓ | 12 | CIN ✓ | 11 | CIN ✓ | CIN |
+| PIT @ CLE | 6-13 | PIT ✗ | 13 | PIT ✗ | 7 | PIT ✗ | CLE |
+| JAX @ IND | 23-17 | JAX ✓ | 10 | JAX ✓ | 8 | JAX ✓ | JAX |
+| TB @ MIA | 17-20 | TB ✗ | 2 | TB ✗ | 9 | TB ✗ | MIA |
 | NE @ NYJ | 42-10 | NE ✓ | 16 | NE ✓ | 15 | NE ✓ | NE |
-| NO @ TEN | 34-26 | NO ✓ | 2 | NO ✓ | 2 | NO ✓ | NO |
-| NYG @ OAK | 34-10 | OAK ✗ | 5 | NYG ✓ | 4 | NYG ✓ | NYG |
-| PHI @ BUF | 13-12 | BUF ✗ | 9 | BUF ✗ | 5 | BUF ✗ | PHI |
-| CHI @ SF | 38-42 | SF ✓ | 10 | SF ✓ | 6 | SF ✓ | SF |
+| NO @ TEN | 34-26 | NO ✓ | 7 | NO ✓ | 2 | NO ✓ | NO |
+| NYG @ OAK | 34-10 | OAK ✗ | 3 | NYG ✓ | 4 | NYG ✓ | NYG |
+| PHI @ BUF | 13-12 | BUF ✗ | 6 | BUF ✗ | 5 | BUF ✗ | PHI |
+| CHI @ SF | 38-42 | SF ✓ | 8 | SF ✓ | 6 | SF ✓ | SF |
 | LAR @ ATL | 24-27 | LAR ✗ | 14 | LAR ✗ | 13 | LAR ✗ | ATL |
 
 ### Week 18
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
-| CAR @ TB | 14-16 | TB ✓ | 7 | TB ✓ | 2 | TB ✓ | TB |
-| SEA @ SF | 13-3 | SEA ✓ | 1 | SEA ✓ | 1 | SEA ✓ | SEA |
-| NO @ ATL | 17-19 | ATL ✓ | 6 | ATL ✓ | 6 | ATL ✓ | ATL |
-| CLE @ CIN | 20-18 | CIN ✗ | 10 | CIN ✗ | 9 | CIN ✗ | CLE |
+| CAR @ TB | 14-16 | TB ✓ | 6 | TB ✓ | 2 | TB ✓ | TB |
+| SEA @ SF | 13-3 | SEA ✓ | 4 | SEA ✓ | 1 | SEA ✓ | SEA |
+| NO @ ATL | 17-19 | ATL ✓ | 5 | ATL ✓ | 6 | ATL ✓ | ATL |
+| CLE @ CIN | 20-18 | CIN ✗ | 9 | CIN ✗ | 9 | CIN ✗ | CLE |
 | IND @ HOU | 30-38 | HOU ✓ | 12 | HOU ✓ | 10 | HOU ✓ | HOU |
 | TEN @ JAX | 7-41 | JAX ✓ | 15 | JAX ✓ | 12 | JAX ✓ | JAX |
-| GB @ MIN | 3-16 | MIN ✓ | 3 | MIN ✓ | 11 | MIN ✓ | MIN |
-| DAL @ NYG | 17-34 | DAL ✗ | 4 | DAL ✗ | 3 | DAL ✗ | NYG |
+| GB @ MIN | 3-16 | MIN ✓ | 1 | MIN ✓ | 11 | MIN ✓ | MIN |
+| DAL @ NYG | 17-34 | DAL ✗ | 7 | DAL ✗ | 3 | DAL ✗ | NYG |
 | NYJ @ BUF | 8-35 | BUF ✓ | 16 | BUF ✓ | 13 | BUF ✓ | BUF |
-| DET @ CHI | 19-16 | CHI ✗ | 5 | CHI ✗ | 5 | CHI ✗ | DET |
+| DET @ CHI | 19-16 | CHI ✗ | 3 | CHI ✗ | 5 | CHI ✗ | DET |
 | LAC @ DEN | 3-19 | DEN ✓ | 8 | DEN ✓ | 16 | DEN ✓ | DEN |
 | ARI @ LAR | 20-37 | LAR ✓ | 14 | LAR ✓ | 15 | LAR ✓ | LAR |
-| KC @ OAK | 12-14 | KC ✗ | 9 | KC ✗ | 8 | KC ✗ | OAK |
-| MIA @ NE | 10-38 | NE ✓ | 11 | NE ✓ | 14 | NE ✓ | NE |
+| KC @ OAK | 12-14 | KC ✗ | 11 | KC ✗ | 8 | KC ✗ | OAK |
+| MIA @ NE | 10-38 | NE ✓ | 10 | NE ✓ | 14 | NE ✓ | NE |
 | WSH @ PHI | 24-17 | PHI ✗ | 13 | PHI ✗ | 4 | PHI ✗ | WSH |
-| BAL @ PIT | 24-26 | PIT ✓ | 2 | BAL ✗ | 7 | BAL ✗ | PIT |
+| BAL @ PIT | 24-26 | BAL ✗ | 2 | BAL ✗ | 7 | BAL ✗ | PIT |
 
 ### Wild Card
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
 | LAR @ CAR | 34-31 | LAR ✓ | 6 | LAR ✓ | 6 | LAR ✓ | LAR |
-| GB @ CHI | 27-31 | CHI ✓ | 2 | GB ✗ | 2 | CHI ✓ | CHI |
+| GB @ CHI | 27-31 | CHI ✓ | 2 | GB ✗ | 2 | GB ✗ | CHI |
 | BUF @ JAX | 27-24 | JAX ✗ | 1 | JAX ✗ | 1 | JAX ✗ | BUF |
-| SF @ PHI | 23-19 | PHI ✗ | 4 | PHI ✗ | 5 | PHI ✗ | SF |
-| LAC @ NE | 3-16 | NE ✓ | 5 | NE ✓ | 4 | NE ✓ | NE |
-| HOU @ PIT | 30-6 | HOU ✓ | 3 | HOU ✓ | 3 | HOU ✓ | HOU |
+| SF @ PHI | 23-19 | PHI ✗ | 3 | PHI ✗ | 5 | PHI ✗ | SF |
+| LAC @ NE | 3-16 | NE ✓ | 4 | NE ✓ | 4 | NE ✓ | NE |
+| HOU @ PIT | 30-6 | HOU ✓ | 5 | HOU ✓ | 3 | HOU ✓ | HOU |
 
 ### Divisional
 
 | Game | Score | Elo pick | Elo rank | Vegas pick | Vegas rank | Combined pick | Winner |
 |---|---|---|---|---|---|---|---|
-| BUF @ DEN | 30-33 | DEN ✓ | 3 | DEN ✓ | 1 | DEN ✓ | DEN |
+| BUF @ DEN | 30-33 | DEN ✓ | 2 | DEN ✓ | 1 | DEN ✓ | DEN |
 | SF @ SEA | 6-41 | SEA ✓ | 4 | SEA ✓ | 4 | SEA ✓ | SEA |
 | HOU @ NE | 16-28 | HOU ✗ | 1 | NE ✓ | 2 | NE ✓ | NE |
-| LAR @ CHI | 20-17 | LAR ✓ | 2 | LAR ✓ | 3 | LAR ✓ | LAR |
+| LAR @ CHI | 20-17 | LAR ✓ | 3 | LAR ✓ | 3 | LAR ✓ | LAR |
 
 ### Conf Champ
 

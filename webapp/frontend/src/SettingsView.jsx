@@ -2,10 +2,10 @@ import { useCallback, useEffect, useState } from 'react'
 import { api } from './api.js'
 import { ErrorBanner, Loading } from './ui.jsx'
 
-const DEFAULTS = { hfa: 65.0, k: 20.0, revert: 1 / 3, mov_base: 2.2, blend_weight: 0.5 }
+const DEFAULTS = { hfa: 32.0, k: 20.0, revert: 1 / 3, mov_base: 2.2, blend_weight: 0.5 }
 
 const FIELDS = [
-  { key: 'hfa', label: 'Home field advantage', hint: 'Elo points added to the home team before forecasting (538 default: 65)', min: 0, max: 200, step: 1 },
+  { key: 'hfa', label: 'Home field advantage', hint: 'Elo points added to the home team before forecasting (recalibrated from 2021-2025 results; 538 originally used 65)', min: 0, max: 200, step: 1 },
   { key: 'k', label: 'K-factor', hint: 'How fast ratings move after each game (538 default: 20)', min: 1, max: 60, step: 1 },
   { key: 'revert', label: 'Season reversion', hint: 'Share of each rating pulled back toward the mean between seasons (538 default: 0.33)', min: 0, max: 1, step: 0.01 },
   { key: 'mov_base', label: 'Margin-of-victory base', hint: 'Base of the blowout multiplier applied to K (538 default: 2.2)', min: 0.5, max: 5, step: 0.1 },
@@ -91,7 +91,7 @@ export default function SettingsView() {
         disabled={saving}
         onClick={() => setParams({ ...params, ...DEFAULTS })}
       >
-        Reset to 538 defaults
+        Reset to defaults
       </button>
       {dirty && !saving && <span className="status-msg warn">Unsaved changes</span>}
       {status && <span className="status-msg">{status}</span>}

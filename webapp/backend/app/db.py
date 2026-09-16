@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 
 from .paths import DB_PATH
 
-DEFAULT_PARAMS = {"hfa": 65.0, "k": 20.0, "revert": 1 / 3.0, "mov_base": 2.2, "blend_weight": 0.5}
+DEFAULT_PARAMS = {"hfa": 32.0, "k": 20.0, "revert": 1 / 3.0, "mov_base": 2.2, "blend_weight": 0.5}
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS model_params (
