@@ -15,3 +15,9 @@ class PickIn(BaseModel):
     team: str = Field(min_length=2, max_length=4, pattern=r"^[A-Z]{2,4}$")
     # A week has never had more than 16 games, so a confidence rank above that is a typo.
     confidence: int | None = Field(default=None, ge=1, le=16)
+
+
+class TotalIn(BaseModel):
+    # The highest-scoring game on record is 113 combined points (1966); 200 is a generous
+    # ceiling that only exists to keep a stray extra digit from being saved as-is.
+    predicted_total: float = Field(gt=0, le=200)

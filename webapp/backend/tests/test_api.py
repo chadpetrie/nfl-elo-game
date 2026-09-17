@@ -1,5 +1,7 @@
 """ The HTTP surface: contract, validation, and the things a user can do to it by accident. """
 
+from datetime import date
+
 import pytest
 
 SEASON, WEEK = 2025, 1
@@ -323,6 +325,73 @@ class TestNonFiniteNumbers:
         for g in client.get(f"/api/games?season={SEASON}&week={WEEK}").json()["games"]:
             for field in ("elo_prob", "combined_prob", "elo1", "elo2"):
                 assert g[field] is None or math.isfinite(g[field])
+
+
+def _find_monday_game(client, season):
+    """ The first (week, game) pair in a season whose Monday game has actually been played -
+    useful when a test needs a real, already-final MNF game rather than an upcoming one. """
+    for w in client.get(f"/api/weeks?season={season}").json():
+        for g in client.get(f"/api/totals?season={season}&week={w['week']}").json()["games"]:
+            if g["score1"] is not None:
+                return w["week"], g
+    return None, None
+
+
+class TestTotals:
+    def test_every_returned_game_is_actually_on_a_monday(self, client):
+        for w in client.get(f"/api/weeks?season={SEASON}").json():
+            for g in client.get(f"/api/totals?season={SEASON}&week={w['week']}").json()["games"]:
+                assert date.fromisoformat(g["date"]).weekday() == 0
+
+    def test_agrees_with_games_about_exactly_which_weeks_have_a_monday_game(self, client):
+        for w in client.get(f"/api/weeks?season={SEASON}").json():
+            games = client.get(f"/api/games?season={SEASON}&week={w['week']}").json()["games"]
+            expected = {g["game_id"] for g in games if date.fromisoformat(g["date"]).weekday() == 0}
+            got = client.get(f"/api/totals?season={SEASON}&week={w['week']}").json()["games"]
+            assert {g["game_id"] for g in got} == expected
+
+    def test_a_finished_games_actual_total_is_the_sum_of_the_two_scores(self, client):
+        week, g = _find_monday_game(client, SEASON)
+        assert g is not None, "expected at least one played Monday game in a full season"
+        assert g["actual_total"] == g["score1"] + g["score2"]
+
+    def test_every_method_is_present_even_when_unknown(self, client):
+        week, g = _find_monday_game(client, SEASON)
+        for method in ("vegas", "season", "recent", "league", "consensus"):
+            assert method in g["methods"]
+
+    def test_a_fresh_game_has_no_saved_prediction(self, client):
+        week, g = _find_monday_game(client, SEASON)
+        assert g["user_total"] is None
+
+    def test_saving_a_prediction_shows_up_on_the_next_fetch(self, client):
+        week, g = _find_monday_game(client, SEASON)
+        client.put(f"/api/totals/{g['game_id']}", json={"predicted_total": 47.5})
+        refreshed = client.get(f"/api/totals?season={SEASON}&week={week}").json()["games"]
+        assert next(r for r in refreshed if r["game_id"] == g["game_id"])["user_total"] == 47.5
+
+    def test_clearing_a_prediction_removes_it(self, client):
+        week, g = _find_monday_game(client, SEASON)
+        client.put(f"/api/totals/{g['game_id']}", json={"predicted_total": 47.5})
+        client.delete(f"/api/totals/{g['game_id']}")
+        refreshed = client.get(f"/api/totals?season={SEASON}&week={week}").json()["games"]
+        assert next(r for r in refreshed if r["game_id"] == g["game_id"])["user_total"] is None
+
+    @pytest.mark.parametrize("bad", [{"predicted_total": 0}, {"predicted_total": -5},
+                                      {"predicted_total": 500}, {"predicted_total": "lots"}, {}])
+    def test_an_invalid_prediction_is_rejected(self, client, bad):
+        week, g = _find_monday_game(client, SEASON)
+        assert client.put(f"/api/totals/{g['game_id']}", json=bad).status_code == 422
+
+    def test_predicting_an_unknown_game_is_a_404(self, client):
+        assert client.put("/api/totals/nope", json={"predicted_total": 45}).status_code == 404
+
+    def test_a_week_with_no_monday_game_is_an_empty_list_not_an_error(self, client):
+        weeks = client.get(f"/api/weeks?season={SEASON}").json()
+        no_monday = next(
+            w for w in weeks
+            if not client.get(f"/api/totals?season={SEASON}&week={w['week']}").json()["games"])
+        assert client.get(f"/api/totals?season={SEASON}&week={no_monday['week']}").json() == {"games": []}
 
 
 class TestStaticAndMisc:

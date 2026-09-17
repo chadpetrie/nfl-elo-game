@@ -1,13 +1,14 @@
 import math
 import threading
+from datetime import date
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
-from . import db, engine, ranking, scoring
-from .models import ParamsIn, PickIn
+from . import db, engine, ranking, scoring, totals
+from .models import ParamsIn, PickIn, TotalIn
 from .paths import FRONTEND_DIST
 
 db.init_db()
@@ -162,6 +163,52 @@ def _find_game(game_id):
     if game is None:
         raise HTTPException(status_code=404, detail="Unknown game %s" % game_id)
     return game
+
+
+def _is_monday(date_str):
+    return date.fromisoformat(date_str).weekday() == 0
+
+
+@app.get("/api/totals")
+def list_totals(season: int, week: int):
+    """ Predicted final combined-score totals for this week's Monday game(s) - usually one, a
+    Monday doubleheader gives two, and most weeks give none. """
+    model = engine.get_model(db.get_params())
+    monday_games = [g for g in model.week_games(season, week) if _is_monday(g["date"])]
+    if not monday_games:
+        return {"games": []}
+
+    history = totals.team_history(model.games)
+    out = []
+    for g in monday_games:
+        actual_total = g["score1"] + g["score2"] if g["score1"] is not None else None
+        out.append({
+            "game_id": g["game_id"],
+            "team1": g["team1"],
+            "team2": g["team2"],
+            "date": g["date"],
+            "gametime": g.get("gametime"),
+            "score1": g["score1"],
+            "score2": g["score2"],
+            "actual_total": actual_total,
+            "methods": totals.predict(g, history, model.games),
+            "user_total": db.get_total(g["game_id"]),
+        })
+    out.sort(key=lambda r: (r["date"], r["gametime"] or "", r["game_id"]))
+    return {"games": out}
+
+
+@app.put("/api/totals/{game_id}")
+def save_total(game_id: str, body: TotalIn):
+    _find_game(game_id)
+    db.save_total(game_id, body.predicted_total)
+    return {"ok": True, "game_id": game_id, "predicted_total": body.predicted_total}
+
+
+@app.delete("/api/totals/{game_id}")
+def clear_total(game_id: str):
+    db.delete_total(game_id)
+    return {"ok": True}
 
 
 @app.get("/api/params")

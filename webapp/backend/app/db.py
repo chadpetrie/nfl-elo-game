@@ -28,6 +28,11 @@ CREATE TABLE IF NOT EXISTS user_picks (
     confidence INTEGER,
     updated_at TEXT NOT NULL
 );
+CREATE TABLE IF NOT EXISTS user_totals (
+    game_id TEXT PRIMARY KEY,
+    predicted_total REAL NOT NULL,
+    updated_at TEXT NOT NULL
+);
 """
 
 
@@ -112,6 +117,39 @@ def save_pick(game_id, team, confidence):
                ON CONFLICT(game_id) DO UPDATE SET team=excluded.team, confidence=excluded.confidence, updated_at=excluded.updated_at""",
             (game_id, team, confidence, datetime.now(timezone.utc).isoformat()),
         )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def get_total(game_id):
+    conn = get_conn()
+    try:
+        row = conn.execute(
+            "SELECT predicted_total FROM user_totals WHERE game_id = ?", (game_id,)).fetchone()
+        return row["predicted_total"] if row else None
+    finally:
+        conn.close()
+
+
+def save_total(game_id, predicted_total):
+    conn = get_conn()
+    try:
+        conn.execute(
+            """INSERT INTO user_totals (game_id, predicted_total, updated_at) VALUES (?, ?, ?)
+               ON CONFLICT(game_id) DO UPDATE SET
+                   predicted_total=excluded.predicted_total, updated_at=excluded.updated_at""",
+            (game_id, predicted_total, datetime.now(timezone.utc).isoformat()),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def delete_total(game_id):
+    conn = get_conn()
+    try:
+        conn.execute("DELETE FROM user_totals WHERE game_id = ?", (game_id,))
         conn.commit()
     finally:
         conn.close()
