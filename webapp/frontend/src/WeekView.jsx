@@ -72,7 +72,7 @@ function PredictionCell({ game, source, maxRank }) {
   )
 }
 
-function PickCell({ game, maxConfidence, duplicate, onSave, onClear }) {
+function PickCell({ game, maxConfidence, duplicate, onSave, onConfidenceChange, onClear }) {
   const pick = game.user_pick
   const team = pick?.team ?? ''
   const confidence = pick?.confidence ?? ''
@@ -87,7 +87,8 @@ function PickCell({ game, maxConfidence, duplicate, onSave, onClear }) {
 
   const changeConfidence = (value) => {
     if (!team) return
-    onSave(game.game_id, team, value === '' ? null : Number(value))
+    if (value === '') return onSave(game.game_id, team, null)
+    onConfidenceChange(game.game_id, team, Number(value))
   }
 
   return (
@@ -117,6 +118,30 @@ function PickCell({ game, maxConfidence, duplicate, onSave, onClear }) {
       </div>
     </td>
   )
+}
+
+// Confidence is a 1..N permutation, not just a label. Reassigning one game's confidence moves it
+// into another game's slot; everything strictly between the old and new position shifts by one
+// to close the gap it left and open the gap it needs, so the whole week stays a clean permutation
+// with nothing duplicated or skipped - the same mechanics as moving an item within a ranked list.
+function shiftedConfidences(games, gameId, newConfidence) {
+  const target = games.find((g) => g.game_id === gameId)
+  const oldConfidence = target?.user_pick?.confidence ?? null
+  const updates = new Map([[gameId, newConfidence]])
+
+  if (oldConfidence == null || newConfidence === oldConfidence) return updates
+
+  for (const g of games) {
+    if (g.game_id === gameId) continue
+    const c = g.user_pick?.confidence
+    if (c == null) continue
+    if (newConfidence < oldConfidence && c >= newConfidence && c < oldConfidence) {
+      updates.set(g.game_id, c + 1)
+    } else if (newConfidence > oldConfidence && c > oldConfidence && c <= newConfidence) {
+      updates.set(g.game_id, c - 1)
+    }
+  }
+  return updates
 }
 
 function RecordChip({ label, stats, className }) {
@@ -205,6 +230,28 @@ export default function WeekView() {
       await api.savePick(gameId, team, confidence)
     } catch (e) {
       applyPick(gameId, previous)  // put the row back the way the server still sees it
+      setError(e)
+    }
+  }
+
+  const changeConfidenceWithShift = async (gameId, team, newConfidence) => {
+    const shifted = shiftedConfidences(games, gameId, newConfidence)
+    const payload = [...shifted.entries()].map(([id, confidence]) => ({
+      id,
+      team: id === gameId ? team : games.find((g) => g.game_id === id).user_pick.team,
+      confidence,
+    }))
+    const previous = new Map(payload.map((p) => [p.id, games.find((g) => g.game_id === p.id)?.user_pick ?? null]))
+
+    setGames((prev) => prev.map((g) => {
+      const p = payload.find((x) => x.id === g.game_id)
+      return p ? { ...g, user_pick: { team: p.team, confidence: p.confidence } } : g
+    }))
+
+    try {
+      await Promise.all(payload.map((p) => api.savePick(p.id, p.team, p.confidence)))
+    } catch (e) {
+      setGames((prev) => prev.map((g) => (previous.has(g.game_id) ? { ...g, user_pick: previous.get(g.game_id) } : g)))
       setError(e)
     }
   }
@@ -395,6 +442,7 @@ export default function WeekView() {
                       maxConfidence={games.length}
                       duplicate={g.user_pick?.confidence != null && confidenceCounts[g.user_pick.confidence] > 1}
                       onSave={savePick}
+                      onConfidenceChange={changeConfidenceWithShift}
                       onClear={clearPick}
                     />
                   </tr>
