@@ -49,4 +49,13 @@ export const api = {
     }),
   rankings: (season) => request(season ? `/rankings?season=${season}` : '/rankings'),
   scoreboard: () => request('/scoreboard'),
+  totals: (season, week) => request(`/totals?season=${season}&week=${week}`),
+  saveTotal: (gameId, predictedTotal) =>
+    request(`/totals/${encodeURIComponent(gameId)}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ predicted_total: predictedTotal }),
+    }),
+  clearTotal: (gameId) =>
+    request(`/totals/${encodeURIComponent(gameId)}`, { method: 'DELETE' }),
 }

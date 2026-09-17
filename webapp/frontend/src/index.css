@@ -576,3 +576,101 @@ h2 {
     font-size: 15px;
   }
 }
+
+.totals-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.totals-card {
+  background: var(--slot-mon-bg);
+}
+
+.totals-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2px;
+}
+
+.totals-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.totals-matchup {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.totals-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.totals-input-row label {
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.totals-input-row input[type=number] {
+  width: 80px;
+  margin-left: auto;
+}
+
+.totals-methods-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+table.totals-methods {
+  width: 100%;
+  min-width: 0; /* overrides the global table rule's 880px, sized for the wide games table */
+  border-collapse: collapse;
+  margin-bottom: 4px;
+}
+
+.totals-methods td {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  white-space: normal;
+}
+
+.totals-methods tr:last-child td {
+  border-bottom: none;
+}
+
+.totals-value {
+  text-align: right;
+  font-weight: 600;
+}
+
+.totals-consensus td {
+  color: var(--accent-combined);
+  font-weight: 700;
+}
+
+.totals-result {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}

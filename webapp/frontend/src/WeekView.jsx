@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { api } from './api.js'
 import { ErrorBanner, Loading } from './ui.jsx'
+import TotalsCard from './TotalsCard.jsx'
 
 const SOURCES = [
   { id: 'elo', label: 'Elo', className: 'col-elo' },
@@ -403,6 +404,8 @@ export default function WeekView() {
           </div>
         )}
       </div>
+
+      <TotalsCard season={season} week={week} />
     </div>
   )
 }
